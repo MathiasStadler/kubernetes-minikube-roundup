@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
+        "Joeri",
+        "Verdeyen",
         "ahci",
         "alsologtostderr",
         "anotherminikube",
@@ -9,8 +11,10 @@
         "bootstrapper",
         "cidr",
         "cpus",
+        "echoserver",
         "emita",
         "etcd",
+        "getsockopt",
         "hyperkit",
         "hyperv",
         "kube",

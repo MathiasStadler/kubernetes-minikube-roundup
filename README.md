@@ -5,6 +5,13 @@
 
 # kubernetes-minikube-roundup
 
+## check VMX on MAC
+
+```bash
+> sysctl -a | grep machdep.cpu.features | grep VMX
+machdep.cpu.features: FPU VME DE PSE TSC MSR PAE MCE CX8 APIC SEP MTRR PGE MCA CMOV PATPSE36 CLFSH DS ACPI MMX FXSR SSE SSE2 SS HTT TM PBE SSE3 PCLMULQDQ DTES64 MON DSCPL VMXSMX EST TM2 SSSE3 FMA CX16 TPR PDCM SSE4.1 SSE4.2 x2APIC MOVBE POPCNT AES PCID XSAVE OSXSAVE SEGLIM64 TSCTMR AVX1.0 RDRAND F16C
+```
+
 - minikube run local with Oracle VirtualBox
 
 ## only for my thought and other things
@@ -99,6 +106,13 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 ```bash
 minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memory 4098
 ```
+
+- with full loglevel
+
+```bash
+> minikube start --v=7 --logtostderr
+```
+
 
 ## more than one minikube local
 
@@ -298,3 +312,48 @@ Kubernetes master is running at https://192.168.99.100:8443
 ```bash
 > kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
 ```
+
+## minikube version
+
+```bash
+> minikube version
+```
+
+## minikube network access checking
+
+```bash
+> minikube ssh curl http://www.google.com
+```
+
+## docker
+
+```bash
+> echo $(minikube docker-env)
+> eval $(minikube docker-env)
+> docker info
+```
+
+
+## minikube issue
+
+[error report ](https://github.com/kubernetes/minikube/issues/2472)
+
+```bash
+> minikube start --kubernetes-version=https://github.com/kubernetes/minikube/releases/download/v0.25.0/localkube
+```
+
+## install minikube version  v0.25.2 from brew cask
+
+- All credits goes to [Joeri Verdeyen - Downgrade an application installed with Brew Cask article](https://www.jverdeyen.be/mac/downgrade-brew-cask-application/)
+
+```bash
+> brew cask install https://raw.githubusercontent.com/minikube-bot/homebrew-cask/3c2839b870b40b78663c678b33352e370260114c/Casks/minikube.rb
+```
+
+## Kubernetes master is running at https://192.168.99.101:8443 getsockopt: network is unreachable
+
+- Solution Version 0.26.1 is the binary localkube not available
+
+## sources
+
+[](https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7)
