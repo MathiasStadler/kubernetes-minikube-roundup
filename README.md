@@ -1,2 +1,165 @@
+<!-- markdownlint-disable MD041 -->
+> I would greatly appreciate it if you kindly give me some feedback if you found an error
+> [Send feedback to me](mailto:feedback@mathias-stadler.de)
+<!-- markdownlint-enable MD041 -->
+
 # kubernetes-minikube-roundup
-kubernetes minikube roundup
+
+- minikube run local with Oracle VirtualBox
+
+## only for my thought and other things
+
+## wrap up exits installation on OS X hosts
+
+TODO check with install
+
+```bash
+minikube stop
+minikube delete
+docker stop $(docker ps -aq)
+rm -rf ~/.kube ~/.minikube
+
+sudo rm -rf /usr/local/bin/kubectl /usr/local/bin/minikube
+systemctl stop '*kubelet*.mount'
+sudo rm -rf /etc/kubernetes/
+docker system prune -af --volumes
+brew uninstall kubectl
+brew uninstall kubernetes-helm
+brew cask uninstall minikube
+```
+
+## install minikube on apple / MacOS
+
+- We will use the variant with Oracle VirtualBox for Apple
+
+## Install VirtualBox for Apple
+
+[Download Version OS X hosts and follow the Instruction](https://www.virtualbox.org/wiki/Downloads)
+
+## update brew
+
+- [install brew](https://brew.sh/) if you not already done, follow the instruction of the site
+
+- usually way to install brew
+
+```bash
+> /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+```bash
+brew update
+```
+
+## install kubectl
+
+- cli tool for control the minikube cluster
+
+- [deeper information](https://kubernetes.io/docs/tasks/tools/install-kubectl/#before-you-begin)
+
+```bash
+> brew install kubectl
+```
+
+- validate installation
+
+```bash
+> kubectl version
+```
+
+- the output should look like
+
+```bash
+08:54 $ kubectl version
+Client Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.2", GitCommit:"81753b10df112992bf51bbc2c2f85208aad78335", GitTreeState:"clean", BuildDate:"2018-05-12T04:12:12Z", GoVersion:"go1.9.6", Compiler:"gc", Platform:"darwin/amd64"}
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+```
+
+- don't worry about the refused connection, this is the next step
+
+
+
+## install minikube
+
+- [github minikube](https://github.com/kubernetes/minikube)
+- [deeper information](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+
+```bash
+> brew cask install minikube
+```
+
+## minikube start
+
+-[details see here](https://kubernetes.io/docs/getting-started-guides/minikube/)
+
+```bash
+> minikube start
+```
+
+- start minikube with more power
+- e.g 4 cpus, 4 gb ram on VirtualBox
+
+```bash
+minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memory 4098
+```
+
+
+- minikube start [flags]
+```bash
+Usage:
+  minikube start [flags]
+
+Flags:
+      --apiserver-ips ipSlice          A set of apiserver IP Addresses whichare used in the generated certificate for localkube/kubernetes.  This can beused if you want to make the apiserver available from outside the machine (default [])
+      --apiserver-name string          The apiserver name which is used in the generated certificate for localkube/kubernetes.  This can be used if you want to make the apiserver available from outside the machine (default "minikubeCA")
+      --apiserver-names stringArray    A set of apiserver names which are used in the generated certificate for localkube/kubernetes.  This can be used if you want to make the apiserver available from outside the machine
+      --cache-images                   If true, cache docker images for the current bootstrapper and load them into the machine. (default true)
+      --container-runtime string       The container runtime to be used
+      --cpus int                       Number of CPUs allocated to the minikube VM (default 2)
+      --disable-driver-mounts          Disables the filesystem mounts provided by the hypervisors (vboxfs, xhyve-9p)
+      --disk-size string               Disk size allocated to the minikube VM (format: <number>[<unit>], where unit = b, k, m or g) (default "20g")
+      --dns-domain string              The cluster dns domain name used in the kubernetes cluster (default "cluster.local")
+      --docker-env stringArray         Environment variables to pass to the Docker daemon. (format: key=value)
+      --docker-opt stringArray         Specify arbitrary flags to pass to the Docker daemon. (format: key=value)
+      --extra-config ExtraOption       A set of key=value pairs that describe configuration that may be passed to different components.
+                The key should be '.' separated, and the first part before the dot is the component to apply the configuration to.
+                Valid components are: kubelet, apiserver, controller-manager, etcd, proxy, scheduler.
+      --feature-gates string           A set of key=value pairs that describe feature gates for alpha/experimental features.
+  -h, --help                           help for start
+      --host-only-cidr string          The CIDR to be used for the minikube VM (only supported with Virtualbox driver) (default "192.168.99.1/24")
+      --hyperv-virtual-switch string   The hyperv virtual switch name. Defaults to first found. (only supported with HyperV driver)
+      --insecure-registry strings      Insecure Docker registries to pass tothe Docker daemon.  The default service CIDR range will automatically be added.
+      --iso-url string                 Location of the minikube iso (default"https://storage.googleapis.com/minikube/iso/minikube-v0.26.0.iso")
+      --keep-context                   This will keep the existing kubectl context and will create a minikube context.
+      --kubernetes-version string      The kubernetes version that the minikube VM will use (ex: v1.2.3)
+ OR a URI which contains a localkube binary (ex: https://storage.googleapis.com/minikube/k8sReleases/v1.3.0/localkube-linux-amd64) (default "v1.10.0")
+      --kvm-network string             The KVM network name. (only supportedwith KVM driver) (default "default")
+      --memory int                     Amount of RAM allocated to the minikube VM in MB (default 2048)
+      --mount                          This will start the mount daemon and automatically mount files into minikube
+      --mount-string string            The argument to pass the minikube mount command on start (default "/Users:/minikube-host")
+      --network-plugin string          The name of the network plugin
+      --nfs-share strings              Local folders to share with Guest viaNFS mounts (Only supported on with hyperkit now)
+      --nfs-shares-root string         Where to root the NFS Shares (defaults to /nfsshares, only supported with hyperkit now) (default "/nfsshares")
+      --registry-mirror strings        Registry mirrors to pass to the Docker daemon
+      --vm-driver string               VM driver is one of: [virtualbox vmwarefusion kvm xhyve hyperv hyperkit kvm2 none] (default "virtualbox")
+      --xhyve-disk-driver string       The disk driver to use [ahci-hd|virtio-blk] (only supported with xhyve driver) (default "ahci-hd")
+
+Global Flags:
+      --alsologtostderr                  log to standard error as well as files
+  -b, --bootstrapper string              The name of the cluster bootstrapper that will set up the kubernetes cluster. (default "kubeadm")
+      --log_backtrace_at traceLocation   when logging hits line file:N, emita stack trace (default :0)
+      --log_dir string                   If non-empty, write log files in this directory
+      --loglevel int                     Log level (0 = DEBUG, 5 = FATAL) (default 1)
+      --logtostderr                      log to standard error instead of files
+  -p, --profile string                   The name of the minikube VM being used.
+        This can be modified to allow for multiple minikube instances to be run independently (default "minikube")
+      --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
+  -v, --v Level                          log level for V logs
+      --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
+```
+
+## minikube config
+
+```bash
+> cat ~/.minikube/machines/minikube/config.json
+```
+
