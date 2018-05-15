@@ -76,8 +76,6 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 
 - don't worry about the refused connection, this is the next step
 
-
-
 ## install minikube
 
 - [github minikube](https://github.com/kubernetes/minikube)
@@ -102,15 +100,33 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memory 4098
 ```
 
-
 ## more than one minikube local
 
 ```bash
 #start
-minikube start --profile=anotherminikube
+> minikube start --profile=anotherminikube
+
+#status
+> minikube status --profile anotherminikube
+
+#stop
+> minikube stop --profile anotherminikube
+
+# set anotherminikube to default
+# Result: minikube command without profile flag use this one
+> minikube config set PROPERTY_NAME PROPERTY_VALUE
+> minikube config set profile anotherminikube
+
+# check which minikube is default
+> minikube config get profile
+
+# delete
+minikube delete --profile anotherminikube
+
 ```
 
 - minikube start [flags]
+
 ```bash
 Usage:
   minikube start [flags]
@@ -134,12 +150,12 @@ Flags:
   -h, --help                           help for start
       --host-only-cidr string          The CIDR to be used for the minikube VM (only supported with Virtualbox driver) (default "192.168.99.1/24")
       --hyperv-virtual-switch string   The hyperv virtual switch name. Defaults to first found. (only supported with HyperV driver)
-      --insecure-registry strings      Insecure Docker registries to pass tothe Docker daemon.  The default service CIDR range will automatically be added.
+      --insecure-registry strings      Insecure Docker registries to pass to the Docker daemon.  The default service CIDR range will automatically be added.
       --iso-url string                 Location of the minikube iso (default"https://storage.googleapis.com/minikube/iso/minikube-v0.26.0.iso")
       --keep-context                   This will keep the existing kubectl context and will create a minikube context.
       --kubernetes-version string      The kubernetes version that the minikube VM will use (ex: v1.2.3)
  OR a URI which contains a localkube binary (ex: https://storage.googleapis.com/minikube/k8sReleases/v1.3.0/localkube-linux-amd64) (default "v1.10.0")
-      --kvm-network string             The KVM network name. (only supportedwith KVM driver) (default "default")
+      --kvm-network string             The KVM network name. (only supported with KVM driver) (default "default")
       --memory int                     Amount of RAM allocated to the minikube VM in MB (default 2048)
       --mount                          This will start the mount daemon and automatically mount files into minikube
       --mount-string string            The argument to pass the minikube mount command on start (default "/Users:/minikube-host")
