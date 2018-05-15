@@ -118,14 +118,20 @@ minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memo
 > minikube config set profile anotherminikube
 
 # check which minikube is default
-> minikube config get profile
+> n get profile
 
 # delete
 minikube delete --profile anotherminikube
 
 ```
 
-- minikube start [flags]
+## minikube show profile/machines
+
+```bash
+ls -l  ~/.minikube/machines/ |grep ^d
+```
+
+## minikube start [flags]
 
 ```bash
 Usage:
@@ -210,7 +216,7 @@ Kubernetes master is running at https://192.168.99.105:8443
 KubeDNS is running at https://192.168.99.105:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
-## minikube start/stop
+## minikube start/stop/status/delete
 
 - stop
 
@@ -240,4 +246,55 @@ $ minikube status
 minikube: Running
 cluster: Running
 kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.105
+```
+
+- minikube delete
+
+```bash
+minikube delete
+```
+
+## show all versions of minikube
+
+```bash
+> minikube get-k8s-versions
+```
+
+## start different version of minikube
+
+```bash
+> minikube start --kubernetes-version v1.7.3 --profile=mkv173
+```
+
+## get ip from minikube
+
+```bash
+> minikube get ip
+```
+
+## get ip of minikube
+
+```bash
+> minikube ip
+```
+
+## deploy hello-minikube on cluster
+
+[from here](https://kubernetes.io/docs/getting-started-guides/minikube/#kubectl)
+
+> kubectl: Is the cli program for control a kubernetes cluster local/remote
+> **Think on your production**
+> check minikube status AND kubectl cluster-info print the same IP addr before you start
+
+```bash
+> minikube status
+minikube: Running
+cluster: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.100
+> kubectl cluster-status
+Kubernetes master is running at https://192.168.99.100:8443
+```
+
+```bash
+> kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
 ```
