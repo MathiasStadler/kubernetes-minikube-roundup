@@ -103,6 +103,13 @@ minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memo
 ```
 
 
+## more than one minikube local
+
+```bash
+#start
+minikube start --profile=anotherminikube
+```
+
 - minikube start [flags]
 ```bash
 Usage:
@@ -163,3 +170,58 @@ Global Flags:
 > cat ~/.minikube/machines/minikube/config.json
 ```
 
+## minikube status
+
+```bash
+> minikube status
+```
+
+- the output should look like
+
+```bash
+> minikube status
+minikube: Running
+cluster: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.105
+```
+
+- for control the cluster will we use kubectl
+- kubectl cluster-info should give us the same information
+
+```bash
+kubectl cluster-info
+Kubernetes master is running at https://192.168.99.105:8443
+KubeDNS is running at https://192.168.99.105:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+```
+
+## minikube start/stop
+
+- stop
+
+```bash
+> minikube stop
+```
+
+- check status
+
+```bash
+> $ minikube status
+minikube: Stopped
+cluster:
+kubectl:
+```
+
+- start
+
+```bash
+> minikube start
+```
+
+- check status
+
+```bash
+$ minikube status
+minikube: Running
+cluster: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.105
+```
