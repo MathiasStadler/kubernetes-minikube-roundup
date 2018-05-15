@@ -354,6 +354,39 @@ Kubernetes master is running at https://192.168.99.100:8443
 
 - Solution Version 0.26.1 is the binary localkube not available
 
+## localkube start/stop/status
+
+- main service of minikube
+
+```bash
+> minikube ssh sudo systemctl stop localkube
+
+> minikube ssh sudo systemctl start localkube
+
+> minikube ssh sudo systemctl status
+ localkube
+```
+
 ## sources
 
 [](https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7)
+
+
+## Troubleshooting
+
+- view status of VBoxNet interfaces
+
+```bash
+> VBoxManage list hostonlyifs
+```
+
+interface not up
+https://www.virtualbox.org/ticket/16911
+
+# host-only network
+[Erklärung Host-only network german](https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox#Host-only_networking)
+
+## proplem with double VirtualBox Host network
+
+vboxnet0:
+vboxnet1:
