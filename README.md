@@ -305,7 +305,7 @@ minikube delete
 minikube: Running
 cluster: Running
 kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.100
-> kubectl cluster-status
+> kubectl cluster-info
 Kubernetes master is running at https://192.168.99.100:8443
 ```
 
@@ -372,7 +372,7 @@ Kubernetes master is running at https://192.168.99.100:8443
 [](https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7)
 
 
-## Troubles1hooting
+## Troubles1mminihooting
 
 - view status of VBoxNet interfaces
 
@@ -390,3 +390,129 @@ https://www.virtualbox.org/ticket/16911
 
 vboxnet0:
 vboxnet1:
+
+
+## open thinks
+
+## minikube service list
+
+## minikube update-context
+
+kubectl config current-context
+
+## turn of kubectl tls
+[from here](https://stackoverflow.com/questions/38664770/cannot-connect-to-minikube-on-macos)
+
+and github [here](https://github.com/robertluwang/docker-hands-on-guide/blob/master/minikube-no-tls-verify.md)
+
+```bash
+VBoxManage controlvm minikube natpf1 k8s-apiserver,tcp,127.0.0.1,8443,,8443
+VBoxManage controlvm minikube natpf1 k8s-dashboard,tcp,127.0.0.1,30000,,30000
+```
+
+## can not reached 92.168.99.100
+
+- Quick fix reinstall VirtualBox :-)
+
+- of course not a proper solution
+
+
+## kubctl verbose
+
+```bash
+> kubectl get pods -v 7
+```
+
+## kubectl set docker env
+
+```bash
+> eval $(minikube docker-env)
+```
+
+```bash
+> docker ps
+```
+
+## docker run XXX
+
+- **Attention** you run this container inside the minikube vm on the local docker **NOT** inside kubernetes
+
+
+## minikube tutorial
+[found here](https://kubernetes.io/docs/tutorials/hello-minikube/#create-your-node-js-application)
+
+## kubectl
+
+## minikube test with node.js
+
+```bash
+minikube version
+kubectl version
+minikube start
+minikube dashboard
+# TODO wait until dashboard service is launch
+## load docker environment
+eval $(minikube docker-env)
+
+mkdir test_nodes && cd $_
+touch server.js
+
+script_name="server.js"
+cat > ./${script_name} << 'EOL'
+var http = require('http');
+var handleRequest = function(request, response) {
+  console.log('Received request for URL: ' + request.url);
+  response.writeHead(200);
+  response.end('test-node services rock!!!');
+};
+var www = http.createServer(handleRequest);
+www.listen(8080);
+EOL
+chmod +x ./${script_name}
+
+script_name="Dockerfile"
+cat > ./${script_name} << 'EOL'
+FROM node:6.9.2
+EXPOSE 8080
+COPY server.js .
+CMD node server.js
+EOL
+chmod +x ./${script_name}
+
+# create docker images
+docker build -t hello-node:v1 .
+
+# deploy docker images in kubernetes ( create container)
+kubectl run hello-node --image=hello-node:v1 --port=8080
+
+# check
+kubectl get deployments
+kubectl get pods
+
+# create kubernetes services
+kubectl expose deployment hello-node --type=LoadBalancer
+
+# The --type=LoadBalancer flag indicates that you want to expose your Service outside of the cluster.
+
+# check service
+kubectl get services
+
+# start minikube service
+minikube service hello-node
+
+# show log
+kubectl logs <POD-NAME>
+
+# clean up
+kubectl delete service hello-node
+kubectl delete deployment hello-node
+
+docker rmi hello-node:v1 hello-node:v2 -f
+minikube stop
+eval $(minikube docker-env -u)
+minikube delete
+
+
+
+
+```
