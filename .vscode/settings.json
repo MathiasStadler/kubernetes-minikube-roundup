@@ -28,9 +28,12 @@
         "logtostderr",
         "markdownlint",
         "minikube",
+        "mkdir",
         "nfsshares",
+        "shunit",
         "stadler",
         "stderrthreshold",
+        "subfolder",
         "systemctl",
         "vboxfs",
         "virtio",
@@ -38,6 +41,7 @@
         "vmodule",
         "vmwarefusion",
         "whichare",
+        "workdir",
         "xhyve"
     ]
 }

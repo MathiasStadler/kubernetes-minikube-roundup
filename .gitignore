@@ -1,0 +1,3 @@
+# exclude from
+tests_workdir
+tests_workdir/**
