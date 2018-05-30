@@ -1,0 +1,13 @@
+# shellcheck
+
+## install shellcheck
+
+```bash
+> brew insall shelcheck
+```
+
+## install vscode plugin
+
+```bash
+>
+```

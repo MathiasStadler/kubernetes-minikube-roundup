@@ -1,0 +1,16 @@
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension Gruntfuggly.todo-tree
+code --install-extension Mikael.Angular-BeastCode
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension Zignd.html-css-class-completion
+code --install-extension bierner.markdown-preview-github-styles
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension eamodio.gitlens
+code --install-extension eg2.tslint
+code --install-extension eg2.vscode-npm-script
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension redhat.vscode-yaml
+code --install-extension steoates.autoimport
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension timonwong.shellcheck
+code --install-extension wix.vscode-import-cost
