@@ -1,6 +1,5 @@
 # code extension via cli
 
-
 ## list installed plugins
 
 ```bash
@@ -21,7 +20,7 @@
 
 ## save and export extension to another vscode installation
 
-- [from here]() all credits goes to []()
+- [from here](https://stackoverflow.com/questions/35773299/how-can-you-export-vs-code-extension-list) all credits goes to [Benny](https://stackoverflow.com/users/2243665/benny)
 
 ```bash
 > code --list-extensions | xargs -L 1 echo code --install-extension
@@ -42,5 +41,5 @@ code --install-extension wix.vscode-import-cost
 ## reload plugins via cli
 
 ```bash
-> code --install-extention timonwong.shellcheck
+> code --install-extension timonwong.shellcheck
 ```
