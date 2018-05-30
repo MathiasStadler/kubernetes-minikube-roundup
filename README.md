@@ -344,7 +344,7 @@ Kubernetes master is running at https://192.168.99.100:8443
 
 ## install minikube version  v0.25.2 from brew cask
 
-- All credits goes to [Joeri Verdeyen - Downgrade an application installed with Brew Cask article](https://www.jverdeyen.be/mac/downgrade-brew-cask-application/)
+- All credits goes to [Joeri Verdeyen - Downgrade an application installed with Brew Cask article](https://www.jverdeyen.be/mac/dowbrngrade-brew-cask-application/)
 
 ```bash
 > brew cask install https://raw.githubusercontent.com/minikube-bot/homebrew-cask/3c2839b870b40b78663c678b33352e370260114c/Casks/minikube.rb
