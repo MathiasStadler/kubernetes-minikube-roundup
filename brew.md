@@ -17,5 +17,6 @@
 # 2nd step e.g. on another instance
 > cat Brewfile |xargs brew install
 # Additional step upgrade formula
+mini
 > cat Brewfile|xargs brew upgrade
 ```

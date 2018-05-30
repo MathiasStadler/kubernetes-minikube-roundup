@@ -42,5 +42,5 @@ code --install-extension wix.vscode-import-cost
 ## reload plugins via cli
 
 ```bash
->
+> code --install-extention timonwong.shellcheck
 ```
