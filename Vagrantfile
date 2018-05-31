@@ -65,7 +65,10 @@ def local_cache(basebox_name)
   cache_dir
 end
 
-DOCKER_VERSION = "18.03.01~ce-0~debian"
+
+# show all advaible version
+# apt-cache policy docker-ce
+DOCKER_VERSION = "18.03.1~ce-0~debian"
 COMPOSE_VERSION = "1.21.2"
 
 $script = <<SCRIPT
