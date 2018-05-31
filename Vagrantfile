@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# from here https://github.com/popstas/ansible-server/blob/master/Vagrantfile
+$VM_NAME = ENV.has_key?('VM_NAME') ? ENV['VM_NAME'] : "vagrant-stretch64-docker-jenkins"
+
+
 # from here https://github.com/fdemmer/vagrant-stretch64-docker/blob/master/Vagrantfile
 
 plugins = ["vagrant-disksize",
@@ -39,8 +43,30 @@ def ensure_plugins(plugins)
 ensure_plugins(plugins)
 
 
-DOCKER_VERSION = "17.09.0~ce-0~debian"
-COMPOSE_VERSION = "1.16.1"
+# used share cache directory
+# from here https://gist.github.com/juanje/3797297
+# usage:
+# Vagrant::Config.run do |config|
+#  config.vm.box = "opscode-ubuntu-12.04"
+#  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
+#  cache_dir = local_cache(config.vm.box)
+#  config.vm.share_folder "v-cache",
+#                         "/var/cache/apt/archives/",
+#                         cache_dir
+# end
+
+def local_cache(basebox_name)
+  cache_dir = Vagrant::Environment.new.home_path.join('cache', 'apt', basebox_name)
+  # Vagrant::Environment.new.home_path
+  print cache_dir
+  cache_dir.mkpath unless cache_dir.exist?
+  partial_dir = cache_dir.join('partial')
+  partial_dir.mkdir unless partial_dir.exist?
+  cache_dir
+end
+
+DOCKER_VERSION = "18.03.01~ce-0~debian"
+COMPOSE_VERSION = "1.21.2"
 
 $script = <<SCRIPT
 
@@ -89,6 +115,26 @@ echo "Enojy! :)"
 
 SCRIPT
 
+$script_ansible = <<SCRIPT1
+# from here https://linuxconfig.org/ansible-installation-on-debian-9-stretch-linux-from-source
+export DEBIAN_FRONTEND=noninteractive
+apt update && apt install -y  make \
+git \
+make \
+python-setuptools \
+gcc \
+python-dev \
+libffi-dev \
+libssl-dev \
+python-packaging  && \
+git clone git://github.com/ansible/ansible.git  && \
+cd ansible && \
+git checkout $(git branch -a | grep stable |tail -1| cut -d "/" -f 3) && \
+make && \
+make install
+SCRIPT1
+
+
 require "open3"
 #set internet device name to the world
 worldwideinterfaces=%x(ip route get  $(dig +short google.com | tail -1) | grep $(dig +short google.com | tail -1)| awk '{print $5}').chomp
@@ -99,9 +145,28 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # network
     # What box should we base this build on?
     config.vm.box = "debian/contrib-stretch64"
+    cache_dir = local_cache(config.vm.box)
+    #config.vm.share_folder "v-cache","/var/cache/apt/archives/",cache_dir
+    config.vm.network "private_network", type: "dhcp"
+
+    # from here
+    # https://serverfault.com/questions/487862/vagrant-os-x-host-nfs-share-permissions-error-failed-to-set-owner-to-1000
+    if (/darwin/ =~ RUBY_PLATFORM) != nil
+      config.vm.synced_folder cache_dir, "/var/cache/apt/archives/", nfs: true, :bsd__nfs_options => ["-maproot=0:0"]
+    else
+      config.vm.synced_folder cache_dir, "/var/cache/apt/archives/", nfs: true, :linux__nfs_options => ["no_root_squash"]
+    end
+
+
+   # TODO old config.vm.synced_folder cache_dir, '/var/cache/apt/archives/', type: 'nfs'
+
+
     config.disksize.size = '20GB'
     # Add 2nd network adapter
-    config.vm.network "public_network", type:"dhcp" ,bridge: "#{worldwideinterfaces}"
+    # config.vm.network "public_network", :type =>"dhcp" ,:bridge => "#{worldwideinterfaces}"
+    config.vm.network "public_network", :type =>"dhcp" ,:bridge => 'en0: Wi-Fi (AirPort)'
+    #:bridge => 'en1: Wi-Fi (AirPort)'
+
     config.ssh.insert_key = false
     #######################################################################
     # THIS REQUIRES YOU TO INSTALL A PLUGIN. RUN THE COMMAND BELOW...
@@ -118,7 +183,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #config.ssh.password = "armbian"
     config.vm.provider "virtualbox" do |vb|
         #name of VM in virtualbox
-        vb.name = "vagrant-stretch64-docker-jenkins"
+        vb.name = $VM_NAME
         # uncomment this to enable the VirtualBox GUI
         #vb.gui = true
         # Tweak these to fit your needs.
@@ -127,6 +192,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      end
 
     config.vm.provision "shell", inline: $script
+    config.vm.provision "shell", inline: $script_ansible
+
+    # TODO sepaerate in scripts
+    # config.vm.provision "one", type: "shell", path: "vagrant/1.bat"
 
     # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
     config.vm.define :jenkins do |jenkins|

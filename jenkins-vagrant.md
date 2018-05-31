@@ -63,6 +63,13 @@ https://www.codeproject.com/Articles/1056410/Setup-Configure-Jenkins-For-Your-Te
 > docker rm $(docker ps -a -q)
 ```
 
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+
+
+VBoxManage internalcommands sethduuid mydisk.vmdkcd
+
+
 
 ## troubleshooting
 
