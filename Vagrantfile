@@ -1,70 +1,141 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
+# from here https://github.com/fdemmer/vagrant-stretch64-docker/blob/master/Vagrantfile
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "minimum/ubuntu-trusty64-docker"
+plugins = ["vagrant-disksize",
+"vagrant-vbguest",
+"vagrant-scp",
+"vagrant-proxyconf"]
+puts plugins.length
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+# Install vagrant plugin
+#
+# @param: plugin type: Array[String] desc: The desired plugin to install
+def ensure_plugins(plugins)
+    logger = Vagrant::UI::Colored.new
+    logger.info("Start Installing plugin #{plugins}")
+    result = false
+    plugins.each do |p|
+      pm = Vagrant::Plugin::Manager.new(
+        Vagrant::Plugin::Manager.user_plugins_file
+      )
+      plugin_hash = pm.installed_plugins
+      next if plugin_hash.has_key?(p)
+      result = true
+      logger.warn("Installing plugin #{p}")
+      pm.install_plugin(p)
+    end
+    if result
+      logger.warn('Re-run vagrant up now that plugins are installed')
+      exit
+    else
+      logger.info('Not additional plugins installed')
+    end
+    logger.info("Finish Installing plugin #{plugins}")
+  end
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+ensure_plugins(plugins)
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
 
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
+DOCKER_VERSION = "17.09.0~ce-0~debian"
+COMPOSE_VERSION = "1.16.1"
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+$script = <<SCRIPT
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
+export DEBIAN_FRONTEND=noninteractive
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+apt-get update && apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common \
+    vim
+
+echo "Installing docker via apt repo..."
+curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+apt-key fingerprint 0EBFCD88
+
+add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+    $(lsb_release -cs) \
+    stable"
+
+apt-get update && apt-get install -y --no-install-recommends \
+    docker-ce=#{DOCKER_VERSION}
+
+echo "Installing docker-compose from source..."
+curl -fsSL https://github.com/docker/compose/releases/download/#{COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+echo "Adding vagrant user to docker and adm groups..."
+groupadd docker &> /dev/null
+usermod -aG docker vagrant
+usermod -aG adm vagrant
+
+echo "Writing docker aliases..."
+cat > /etc/profile.d/00-aliases.sh <<EOF
+alias d="docker"
+alias dc="docker-compose"
+EOF
+
+echo "Install kernel check-config script"
+wget https://github.com/docker/docker/raw/master/contrib/check-config.sh
+chmod +x check-config.sh
+
+echo "Enojy! :)"
+
+SCRIPT
+
+require "open3"
+#set internet device name to the world
+worldwideinterfaces=%x(ip route get  $(dig +short google.com | tail -1) | grep $(dig +short google.com | tail -1)| awk '{print $5}').chomp
+ENV["LC_ALL"] = "en_US.UTF-8"
+Vagrant.require_version ">= 1.8"
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+# network
+    # What box should we base this build on?
+    config.vm.box = "debian/contrib-stretch64"
+    config.disksize.size = '20GB'
+    # Add 2nd network adapter
+    config.vm.network "public_network", type:"dhcp" ,bridge: "#{worldwideinterfaces}"
+    config.ssh.insert_key = false
+    #######################################################################
+    # THIS REQUIRES YOU TO INSTALL A PLUGIN. RUN THE COMMAND BELOW...
+    #
+    #   $ vagrant plugin install vagrant-disksize
+    #
+    # Default images are not big enough to build .
+    # config.disksize.size = '8GB'
+    # forward terminal type for better compatibility with Dialog - disabled on Ubuntu by default
+    config.ssh.forward_env = ["TERM"]
+    # default user name is "ubuntu", please do not change it
+
+    # SSH password auth is disabled by default, uncomment to enable and set the password
+    #config.ssh.password = "armbian"
+    config.vm.provider "virtualbox" do |vb|
+        #name of VM in virtualbox
+        vb.name = "vagrant-stretch64-docker-jenkins"
+        # uncomment this to enable the VirtualBox GUI
+        #vb.gui = true
+        # Tweak these to fit your needs.
+        vb.memory = "8192"
+        vb.cpus = "4"
+     end
+
+    config.vm.provision "shell", inline: $script
+
+    # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
+    config.vm.define :jenkins do |jenkins|
+    end
+
+    # # Ansible provisioner.
+    # config.vm.provision "ansible" do |ansible|
+    #    ansible.playbook = "provisioning/main.yml"
+    #    ansible.verbose = "v"
+    # end
+
 end

@@ -3,6 +3,7 @@
         "Erklärung",
         "Joeri",
         "LGPL",
+        "Vagrantfile",
         "Verdeyen",
         "ahci",
         "alsologtostderr",
@@ -14,6 +15,7 @@
         "bootstrapper",
         "cidr",
         "cpus",
+        "disksize",
         "eamodio",
         "echoserver",
         "emita",
@@ -53,6 +55,7 @@
         "vmwarefusion",
         "whichare",
         "workdir",
+        "worldwideinterfaces",
         "xargs",
         "xhyve"
     ],
