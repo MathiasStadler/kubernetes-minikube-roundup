@@ -8,6 +8,7 @@
         "ahci",
         "alsologtostderr",
         "anotherminikube",
+        "ansible",
         "apiserver",
         "autoimport",
         "backtrace",
@@ -87,5 +88,6 @@
         "typescript",
         "typescriptreact",
         "yml"
-    ]
+    ],
+    "cSpell.language": "en"
 }
