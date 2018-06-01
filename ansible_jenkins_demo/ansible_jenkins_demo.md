@@ -18,12 +18,19 @@
 
 ```yaml
 - hosts: all
-  vars:
-    jenkins_hostname: jenkins.example.com
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
   roles:
     - role: geerlingguy.java
     - role: geerlingguy.jenkins
       become: true
+```
+
+## easy playbook.yml with plugins
+
+```yaml
+
 ```
 
 ## syntax check
@@ -52,3 +59,12 @@ DASH geerlingguy.jenkins
 https://github.com/geerlingguy/ansible-role-jenkins/issues/164
 
 https://github.com/geerlingguy/ansible-role-jenkins/issues/129
+
+https://github.com/geerlingguy/ansible-role-jenkins/tree/master/tests
+
+ansible-container
+https://docs.ansible.com/ansible-container/getting_started.html
+
+https://jaxenter.de/10-wege-docker-images-zu-bauen-3-ansible-70968
+
+https://www.dailyrazor.com/linux-hosting/#linux-hosting-plans

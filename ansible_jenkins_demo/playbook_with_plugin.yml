@@ -2,6 +2,13 @@
   remote_user: vagrant
   become: yes
   become_method: sudo
+
+  vars:
+    jenkins_plugins:
+    - ant
+    - git
+
+
   roles:
     - role: geerlingguy.java
     - role: geerlingguy.jenkins
