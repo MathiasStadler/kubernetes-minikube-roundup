@@ -5,3 +5,4 @@ tests_workdir/**
 **/*uid
 **/*id
 **/*.vagrant
+**/*roles

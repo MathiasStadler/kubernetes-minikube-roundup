@@ -1,0 +1,8 @@
+- src: https://github.com/angstwad/docker.ubuntu
+  name: angstwad.docker.ubuntu
+  version: master
+
+- src: https://github.com/geerlingguy/ansible-role-jenkins
+  name: geerlingguy.jenkins
+  version: master
+

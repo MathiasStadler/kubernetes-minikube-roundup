@@ -26,6 +26,7 @@
 ## check listen docker deamon
 
 ```bash
+# get hostip address
 nc -zv 192.168.64.8 2375
 ```
 
@@ -35,4 +36,20 @@ nc -zv 192.168.64.8 2375
 
 ```bash
 > ss -t -a
+```
+
+## docker start/stop/status
+
+```bash
+> sudo systemctl start docker
+> sudo systemctl status docker
+> sudo systemctl stop docker
+```
+
+## add user to docker group
+
+* you need no sudo for each command
+
+```bash
+> sudo usermod -aG docker $USER
 ```
