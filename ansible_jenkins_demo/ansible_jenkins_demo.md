@@ -68,3 +68,5 @@ https://docs.ansible.com/ansible-container/getting_started.html
 https://jaxenter.de/10-wege-docker-images-zu-bauen-3-ansible-70968
 
 https://www.dailyrazor.com/linux-hosting/#linux-hosting-plans
+
+https://github.com/keel-hq/keel

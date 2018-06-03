@@ -87,6 +87,7 @@
         "text",
         "typescript",
         "typescriptreact",
+        "yaml",
         "yml"
     ],
     "cSpell.language": "en"
