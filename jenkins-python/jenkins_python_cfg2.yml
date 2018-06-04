@@ -1,0 +1,15 @@
+---
+default:
+  name: default
+  server: localhost
+  port: 8080
+  protocol: https
+  user: admin
+  password: admin
+remote:
+  name: default
+  server: localhost
+  port: 8080
+  protocol: https
+  user: admin
+  password: admin

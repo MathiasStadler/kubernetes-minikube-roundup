@@ -12,3 +12,5 @@
 # python 3
 > pip3 install PyYAML
 ```
+
+## sample code for [yaml](https://www.programcreek.com/python/example/10228/yaml.YAMLError)
