@@ -3,7 +3,10 @@
 ## install
 
 ```bash
+# python2
 > pip install python-jenkins
+# python3
+> pip3 install python-jenkins
 ```
 
 ```bash
