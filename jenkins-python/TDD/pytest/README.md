@@ -52,6 +52,17 @@
 > py.test test
 ```
 
+## disable test
+
+- type n front of test case a \_
+
+```python
+# disable test case
+def _test_case01(self): ...
+# enable test case
+def test_case01(self): ...
+```
+
 - run all test in verbose mode in sub directory test
 
 ```bash
