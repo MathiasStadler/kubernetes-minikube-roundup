@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="7" name="pytest" skips="0" tests="18" time="6.191"><testcase classname="test_simple.TestClass01" file="test_simple.py" line="1" name="test_case01" time="0.0023860931396484375"></testcase><testcase classname="test_simple.TestClass01" file="test_simple.py" line="4" name="test_case02" time="0.0006566047668457031"></testcase><testcase classname="test.test_fixtures" file="test/test_fixtures.py" line="16" name="test_case01" time="0.0025413036346435547"><system-out>
+In setup_module()...
+
+In setup_function()...
+
+In test_case01()...
+
+In teardown_function()...
+</system-out></testcase><testcase classname="test.test_fixtures" file="test/test_fixtures.py" line="20" name="test_case02" time="0.00165557861328125"><system-out>
+In setup_function()...
+
+In test_case02()...
+
+In teardown_function()...
+</system-out></testcase><testcase classname="test.test_fixtures.TestClass02" file="test/test_fixtures.py" line="39" name="test_case03" time="0.0008640289306640625"><system-out>
+In setup_class()...
+
+In setup_method()...
+
+In test_case03()...
+
+In teardown_method()...
+</system-out></testcase><testcase classname="test.test_fixtures.TestClass02" file="test/test_fixtures.py" line="42" name="test_case04" time="0.0010297298431396484"><system-out>
+In setup_method()...
+
+In test_case04()...
+
+In teardown_method()...
+
+In teardown_class()...
+
+In teardown_module()...
+</system-out></testcase><testcase classname="test.test_longtime" file="test/test_longtime.py" line="4" name="test_case_longtime_3second" time="3.001350164413452"></testcase><testcase classname="test.test_longtime" file="test/test_longtime.py" line="9" name="test_case_longtime_2second" time="2.0060155391693115"></testcase><testcase classname="test.test_longtime" file="test/test_longtime.py" line="14" name="test_case_longtime_1second" time="1.0044450759887695"></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="3" name="test_good" time="0.0011012554168701172"></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="7" name="test_case01" time="0.00866389274597168"><failure message="assert 0 == 1">def test_case01():
+&gt;       assert 0 == 1
+E       assert 0 == 1
+
+test/test_maxfail.py:9: AssertionError</failure></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="11" name="test_case02" time="0.0007076263427734375"><failure message="assert 0 == 2">def test_case02():
+&gt;       assert 0 == 2
+E       assert 0 == 2
+
+test/test_maxfail.py:13: AssertionError</failure></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="15" name="test_case03" time="0.0012257099151611328"><failure message="assert 0 == 3">def test_case03():
+&gt;       assert 0 == 3
+E       assert 0 == 3
+
+test/test_maxfail.py:17: AssertionError</failure></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="19" name="test_case04" time="0.0011255741119384766"><failure message="assert 0 == 4">def test_case04():
+&gt;       assert 0 == 4
+E       assert 0 == 4
+
+test/test_maxfail.py:21: AssertionError</failure></testcase><testcase classname="test.test_maxfail" file="test/test_maxfail.py" line="23" name="test_case05" time="0.0020940303802490234"><failure message="assert 0 == 5">def test_case05():
+&gt;       assert 0 == 5
+E       assert 0 == 5
+
+test/test_maxfail.py:25: AssertionError</failure></testcase><testcase classname="test.test_raises" file="test/test_raises.py" line="7" name="test_case01" time="0.0008580684661865234"></testcase><testcase classname="test.test_raises" file="test/test_raises.py" line="15" name="test_case02" time="0.0009081363677978516"><failure message="Failed: DID NOT RAISE &lt;class &apos;Exception&apos;&gt;">def test_case02():
+        with pytest.raises(Exception):
+            x = 1 / 1
+&gt;           print(&quot;x =&gt; %i&quot; % x)
+E           Failed: DID NOT RAISE &lt;class &apos;Exception&apos;&gt;
+
+test/test_raises.py:19: Failed</failure><system-out>x =&gt; 1
+</system-out></testcase><testcase classname="test.test_sample" file="test/test_sample.py" line="5" name="test_answer" time="0.0014646053314208984"><failure message="assert 4 == 5
+ +  where 4 = inc(3)">def test_answer():
+&gt;       assert inc(3) == 5
+E       assert 4 == 5
+E        +  where 4 = inc(3)
+
+test/test_sample.py:7: AssertionError</failure></testcase></testsuite>

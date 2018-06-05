@@ -40,6 +40,7 @@
         "mymath",
         "mymathlib",
         "nfsshares",
+        "pytest",
         "redhat",
         "rtrn",
         "shellcheck",

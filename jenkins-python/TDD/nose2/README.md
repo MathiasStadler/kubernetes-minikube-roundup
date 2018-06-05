@@ -26,6 +26,18 @@ OK
 > python3 -m nose2 test_module01.py
 ```
 
+## install nose-html
+
+```base
+> pip3 install nose-htmloutput
+```
+
+## generate html report
+
+```bash
+
+```
+
 ## module
 
 https://www.blog.pythonlibrary.org/2012/07/08/python-201-creating-modules-and-packages/
