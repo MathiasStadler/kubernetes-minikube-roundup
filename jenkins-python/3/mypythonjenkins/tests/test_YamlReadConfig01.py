@@ -1,4 +1,8 @@
-from YamlReadConfig import YamlReadConfig
+# -*- coding: utf-8 -*-
+
+import pytest
+# from bin.YamlReadConfig import *
+from .context import pythonJenkins
 import os
 import inspect
 
@@ -12,8 +16,9 @@ class TestClass01:
 
     def test_case01(self):
         self.whereWeAre()
-        assert YamlReadConfig().getConfigValue('server') == 'localhost'
+        assert pythonJenkins.YamlReadConfig.getConfigValue(
+            self, 'server') == 'localhost'
 
     def test_case02(self):
         self.whereWeAre()
-        assert YamlReadConfig().getConfigValue('user') == 'admin'
+        assert getConfigValue('user') == 'admin'

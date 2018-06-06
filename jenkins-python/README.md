@@ -17,3 +17,15 @@
 ```
 
 ## sample code for [yaml](https://www.programcreek.com/python/example/10228/yaml.YAMLError)
+
+## hints
+
+### show tabs iside Makfile
+
+```bash
+> cat -e -t -v  Makefile
+```
+
+## sample project structur python 3 projects
+
+http://docs.python-guide.org/en/latest/writing/structure/

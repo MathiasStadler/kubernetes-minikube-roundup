@@ -1,5 +1,6 @@
-from YamlReadConfig import YamlReadConfig
-from nose.tools import with_setup, timed, raises
+# -*- coding: utf-8 -*-
+
+from .context import pythonJenkins
 import os
 import inspect
 import time
@@ -12,7 +13,7 @@ def setUpModule():
     """called once, before anything else in this module"""
     print("In setUpModule()...")
     global math_obj
-    math_obj = YamlReadConfig()
+    math_obj = pythonJenkins.YamlReadConfig()
 
 
 def tearDownModule():
@@ -56,20 +57,10 @@ class TestClass01:
         print("\nteardown_function()...")
 
     # Test Cases
-    def test_case01(self):
+    def _test_case01(self):
         self.whereWeAre()
-        assert YamlReadConfig().getConfigValue('server') == 'localhost'
+        assert pythonJenkins.getConfigValue('server') == 'localhost'
 
-    def test_case02(self):
+    def _test_case02(self):
         self.whereWeAre()
-        assert YamlReadConfig().getConfigValue('user') == 'admin'
-
-    @with_setup(setup_function, teardown_function)
-    def test_case03(self):
-        print("In test_case03()...")
-
-    @raises(TimeExpired)
-    @timed(.1)
-    def test_caseTimed(self):
-        time.sleep(.2)
-        raise TimeExpired("This test passes")
+        assert pythonJenkins.getConfigValue('user') == 'admin'

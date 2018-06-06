@@ -9,7 +9,8 @@ class YamlReadConfig:
         self.data = []
 
     def getConfigValue(self, kez):
-        f = open('../jenkins_python_cfg2.yml')
+        # Attention the config file is the package
+        f = open('./configs/localhost_config.yml')
         try:
             doc = yaml.load(f)
         except yaml.YAMLError as exc:
