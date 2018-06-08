@@ -1,16 +1,32 @@
+import logging
 import yaml
 print ("version of yaml ==> " + yaml.__version__)
 
 
 class YamlReadConfig:
-    default_config = 'default'
 
-    def __init__(self):
-        self.data = []
+    _default_config = 'default'
+    _defaultConfigFilePath = './configs/localhost_config.yml'
+
+    def __init__(self, configFile=None):
+        if configFile is None:
+            self._configFile = self._defaultConfigFilePath
+
+            self._configFile = configFile
+
+    @property
+    def configFile(self):
+        return self._configFile
+
+    @configFile.setter
+    def configFile(self, configFile):
+        self._configFile = configFile
+        print("Setting config of => %s " % self._configFile)
 
     def getConfigValue(self, kez):
+
         # Attention the config file is the package
-        f = open('./configs/localhost_config.yml')
+        f = open(self._defaultConfigFilePath)
         try:
             doc = yaml.load(f)
         except yaml.YAMLError as exc:
@@ -19,7 +35,8 @@ class YamlReadConfig:
                 print ("Error position: (%s:%s)" %
                        (mark.line+1, mark.column+1))
         f.close()
-        return_kez = doc[self.default_config][kez]
+        #return_kez = doc[self.default_config][kez]
+        return_kez = doc[self._default_config][kez]
         return return_kez
 
 

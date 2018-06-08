@@ -28,4 +28,12 @@
 
 ## sample project structur python 3 projects
 
+```txt
 http://docs.python-guide.org/en/latest/writing/structure/
+```
+
+## website with include python repl
+
+```txt
+https://www.programiz.com/python-programming/property
+```

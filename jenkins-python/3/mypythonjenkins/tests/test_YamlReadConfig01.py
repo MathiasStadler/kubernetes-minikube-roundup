@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
-
 import pytest
-# from bin.YamlReadConfig import *
-from .context import pythonJenkins
 import os
 import inspect
+import sys
+
+before = [str(m) for m in sys.modules]
+
+# from bin.YamlReadConfig import *
+from .context import pythonJenkins
+
+after = [str(m) for m in sys.modules]
+print ([m for m in after if not m in before])
 
 
-class TestClass01:
+def test_case01():
+    # self.whereWeAre()
+    clazz = pythonJenkins.YamlReadConfig()
+    assert clazz.getConfigValue('server') == 'localhost'
 
-    def whereWeAre(self):
-        print("File => %s" % os.path.basename(__file__))
-        print("CLass => %s" % self.__class__.__name__)
-        print ("def => %s" % inspect.stack()[1][3])
 
-    def test_case01(self):
-        self.whereWeAre()
-        assert pythonJenkins.YamlReadConfig.getConfigValue(
-            self, 'server') == 'localhost'
-
-    def test_case02(self):
-        self.whereWeAre()
-        assert getConfigValue('user') == 'admin'
+def test_case02():
+    # self.whereWeAre()
+    assert pythonJenkins.YamlReadConfig().getConfigValue('user') == 'admin'
