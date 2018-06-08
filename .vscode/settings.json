@@ -96,5 +96,6 @@
         "yaml",
         "yml"
     ],
-    "cSpell.language": "en"
+    "cSpell.language": "en",
+    "python.pythonPath": "/usr/local/opt/python/bin/python3.6"
 }
