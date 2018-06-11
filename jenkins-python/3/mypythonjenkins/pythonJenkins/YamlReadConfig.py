@@ -37,10 +37,13 @@ class YamlReadConfig:
         try:
             doc = yaml.load(f)
         except yaml.YAMLError as exc:
-            if hasattr(exc, 'problem_mark'):
+            if exc.problem_mark is not None:
                 mark = exc.problem_mark
                 print("Error position: (%s:%s)" %
                       (mark.line+1, mark.column+1))
+            else:
+                print("Something went wrong while parsing yaml file")
+
         f.close()
         # return_kez = doc[self.default_config][kez]
         return_kez = doc[self._default_config][kez]

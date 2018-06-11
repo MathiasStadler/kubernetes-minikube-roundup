@@ -9,13 +9,13 @@ class Test_YamlReadConfig:
         yamlReadConfig = pythonJenkins.YamlReadConfig()
         assert yamlReadConfig.getConfigValue('server') == 'localhost'
 
-    def test_case_set_custopm_config(self):
-        '''set custom config fiel'''
+    def test_case_set_custom_config(self):
+        '''set custom config file'''
         yamlReadConfig = pythonJenkins.YamlReadConfig()
         assert yamlReadConfig is not None
 
         configFilePath = yamlReadConfig.configFile
         defaultConfigFilePath = yamlReadConfig._defaultConfigFilePath
 
-        # assert configFilePath == defaultConfigFilePath
+        assert configFilePath == defaultConfigFilePath
         # yamlReadConfig.configFile("./custom_jenkins.yml")

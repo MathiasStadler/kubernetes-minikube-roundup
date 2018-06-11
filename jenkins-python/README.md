@@ -20,13 +20,13 @@
 
 ## hints
 
-### show tabs iside Makfile
+### show tabs inside Makefile
 
 ```bash
 > cat -e -t -v  Makefile
 ```
 
-## sample project structur python 3 projects
+## sample project structure python 3 projects
 
 ```txt
 http://docs.python-guide.org/en/latest/writing/structure/
