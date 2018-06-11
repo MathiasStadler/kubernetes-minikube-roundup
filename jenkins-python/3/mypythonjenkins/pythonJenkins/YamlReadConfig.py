@@ -1,12 +1,19 @@
+import sys
+import os
 import logging
 import yaml
-print ("version of yaml ==> " + yaml.__version__)
+print("version of yaml ==> " + yaml.__version__)
 
 
 class YamlReadConfig:
 
+    current_module = sys.modules[__name__]
+    moduleDirectory = current_module.__file__
+    moduleRootPath = os.path.dirname(
+        os.path.abspath(moduleDirectory))+os.sep+".."+os.sep
+
     _default_config = 'default'
-    _defaultConfigFilePath = './configs/localhost_config.yml'
+    _defaultConfigFilePath = moduleRootPath + '/configs/localhost_config.yml'
 
     def __init__(self, configFile=None):
         if configFile is None:
@@ -32,10 +39,10 @@ class YamlReadConfig:
         except yaml.YAMLError as exc:
             if hasattr(exc, 'problem_mark'):
                 mark = exc.problem_mark
-                print ("Error position: (%s:%s)" %
-                       (mark.line+1, mark.column+1))
+                print("Error position: (%s:%s)" %
+                      (mark.line+1, mark.column+1))
         f.close()
-        #return_kez = doc[self.default_config][kez]
+        # return_kez = doc[self.default_config][kez]
         return_kez = doc[self._default_config][kez]
         return return_kez
 
