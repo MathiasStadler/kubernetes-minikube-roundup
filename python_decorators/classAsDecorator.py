@@ -13,27 +13,25 @@ def foo():
     print("inside foo()")
 
 
-foo()
+# foo()
 
 
 # with decorators argument
 class sty(object):
+
     def __init__(self, tag):
         self.tag = tag
 
     def __call__(self, f):
         def newf(*args, **kwargs):
+
             print("fn => {}".format(f.__name__))
+            print(args)
+            print(kwargs)
+
             # We store the arguments
             self.args = args
             self.kwargs = kwargs
-            args_str = ', '.join(args)
-            kwargs_str = ', '.join([':'.join([str(j) for j in i])
-                                    for i in kwargs.items()])
-
-            print ("args => {}".format(args_str))
-
-            print ("kwargs=> {}".format(kwargs_str))
 
             return "<{tag}>{res}</{tag}>".format(res=f(*args, **kwargs), tag=self.tag)
         return newf
@@ -42,8 +40,8 @@ class sty(object):
 @sty('hml')
 @sty('b')
 @sty('i')
-def sayhi(x=None, y="hallo"):
+def sayhi(kwargs_1="Shark", kwargs_2=4.5, kwargs_3=True):
     return 'hi'
 
 
-print(sayhi("hallo"))
+print(sayhi("hallo", "duda"))

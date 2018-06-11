@@ -37,3 +37,19 @@ http://docs.python-guide.org/en/latest/writing/structure/
 ```txt
 https://www.programiz.com/python-programming/property
 ```
+
+## book jenkins api
+
+```txt
+https://media.readthedocs.org/pdf/python-jenkins/latest/python-jenkins.pdf
+```
+
+## jenkinsapi vs python-jenkins
+
+```txt
+https://github.com/pycontribs/jenkinsapi
+```
+
+```python
+from jenkinsapi.jenkins import Jenkins
+```

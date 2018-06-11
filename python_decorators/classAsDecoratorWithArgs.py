@@ -1,30 +1,25 @@
-# from here
-# https://stackoverflow.com/questions/49210552/how-to-provide-args-and-kwargs-to-call-using-abbreviated-notation-of-clas
+import functools
+import random
 
 
-class MyDecoratorClass:
-    def __init__(self, *args, **kwargs):
-        # We store the arguments
-        self.args = args
-        self.kwargs = kwargs
+class cache(object):
 
-        # Any other code that is needed here
+    def __init__(self, func):
+        self.func = func
+        functools.update_wrapper(self, func)
 
-    def __call__(self, fun_to_decorate):  # Single argument
-        def inner(*args, **kwargs):
+    def __call__(self, *args, **kwargs):
 
-            # Here you have access to self.args and self.kwargs
+        result = self.func(*args, **kwargs)
 
-            print("fn => ")
-
-            return fun_to_decorate(*args, **kwargs)
-
-        return inner
+        return result
 
 
-@MyDecoratorClass
-def callD():
-    print ("Hello callD")
+@cache
+def function_to_wrap(bits=128):
+    return random.getrandbits(bits)
 
 
-print(callD)
+if __name__ == "__main__":
+    print(function_to_wrap())
+    print(function_to_wrap())
