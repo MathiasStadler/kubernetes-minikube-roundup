@@ -1,0 +1,363 @@
+2018-06-11 19:20:53,208 - __main__ - DEBUG - Start Log
+2018-06-11 19:22:44,006 - __main__ - DEBUG - Start Log
+2018-06-11 19:26:39,872 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:28:17,142 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:28:17,142 - __main__ - INFO - Info Log start
+2018-06-11 19:28:17,142 - __main__ - WARNING - Warn Log start
+2018-06-11 19:28:17,143 - __main__ - ERROR - Error Loh start
+2018-06-11 19:28:17,143 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:29:59,928 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:29:59,928 - __main__ - INFO - Info Log start
+2018-06-11 19:29:59,929 - __main__ - WARNING - Warn Log start
+2018-06-11 19:29:59,929 - __main__ - ERROR - Error Loh start
+2018-06-11 19:29:59,929 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:34:35,227 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:34:35,234 - __main__ - INFO - Info Log start
+2018-06-11 19:34:35,235 - __main__ - WARNING - Warn Log start
+2018-06-11 19:34:35,235 - __main__ - ERROR - Error Loh start
+2018-06-11 19:34:35,235 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:34:35,254 - __main__ - INFO - name => default
+2018-06-11 19:34:35,254 - __main__ - INFO - serverName => localhost
+2018-06-11 19:35:13,511 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:35:13,511 - __main__ - INFO - Info Log start
+2018-06-11 19:35:13,511 - __main__ - WARNING - Warn Log start
+2018-06-11 19:35:13,511 - __main__ - ERROR - Error Loh start
+2018-06-11 19:35:13,511 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:35:13,523 - __main__ - INFO - name => default 
+2018-06-11 19:35:13,524 - __main__ - INFO - serverName => localhost
+2018-06-11 19:35:44,701 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:35:44,701 - __main__ - INFO - Info Log start
+2018-06-11 19:35:44,701 - __main__ - WARNING - Warn Log start
+2018-06-11 19:35:44,701 - __main__ - ERROR - Error Loh start
+2018-06-11 19:35:44,701 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:35:44,717 - __main__ - INFO - name => default 
+2018-06-11 19:35:44,717 - __main__ - INFO - serverName => localhost
+2018-06-11 19:35:44,717 - __main__ - INFO - port => 8080
+2018-06-11 19:35:44,717 - __main__ - INFO - protocol => https
+2018-06-11 19:35:44,717 - __main__ - INFO - user => admin
+2018-06-11 19:35:44,718 - __main__ - INFO - password => ****
+2018-06-11 19:41:09,071 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:41:09,071 - __main__ - INFO - Info Log start
+2018-06-11 19:41:09,072 - __main__ - WARNING - Warn Log start
+2018-06-11 19:41:09,072 - __main__ - ERROR - Error Loh start
+2018-06-11 19:41:09,072 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:41:09,088 - __main__ - INFO - name => default 
+2018-06-11 19:41:09,088 - __main__ - INFO - serverName => localhost 
+2018-06-11 19:41:09,088 - __main__ - INFO - port => 8080
+2018-06-11 19:41:09,088 - __main__ - INFO - protocol => https
+2018-06-11 19:41:09,088 - __main__ - INFO - user => admin
+2018-06-11 19:42:03,986 - __main__ - DEBUG - Debug Log Start 
+2018-06-11 19:42:03,986 - __main__ - INFO - Info Log start
+2018-06-11 19:42:03,986 - __main__ - WARNING - Warn Log start
+2018-06-11 19:42:03,986 - __main__ - ERROR - Error Loh start
+2018-06-11 19:42:03,986 - __main__ - CRITICAL - Critical Log start
+2018-06-11 19:42:04,003 - __main__ - INFO - name => default 
+2018-06-11 19:42:04,003 - __main__ - INFO - serverName => localhost 
+2018-06-11 19:42:04,003 - __main__ - INFO - port => 8080
+2018-06-11 19:42:04,003 - __main__ - INFO - protocol => https
+2018-06-11 19:42:04,004 - __main__ - INFO - user => admin
+2018-06-11 19:42:04,004 - __main__ - INFO - password => 
+2018-06-11 19:45:42,870 - DEBUG    - __main__ - Debug Log Start 
+2018-06-11 19:45:42,872 - INFO     - __main__ - Info Log start
+2018-06-11 19:45:42,872 - WARNING  - __main__ - Warn Log start
+2018-06-11 19:45:42,872 - ERROR    - __main__ - Error Loh start
+2018-06-11 19:45:42,873 - CRITICAL - __main__ - Critical Log start
+2018-06-11 19:45:42,892 - INFO     - __main__ - name => default 
+2018-06-11 19:45:42,892 - INFO     - __main__ - serverName => localhost 
+2018-06-11 19:45:42,892 - INFO     - __main__ - port => 8080
+2018-06-11 19:45:42,892 - INFO     - __main__ - protocol => https
+2018-06-11 19:45:42,892 - INFO     - __main__ - user => admin
+2018-06-11 19:45:42,893 - INFO     - __main__ - password => XXXXX
+2018-06-11 19:48:11,229 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-11 19:48:11,232 - INFO     - __main__ - 	 Info Log start
+2018-06-11 19:48:11,232 - WARNING  - __main__ - 	 Warn Log start
+2018-06-11 19:48:11,232 - ERROR    - __main__ - 	 Error Loh start
+2018-06-11 19:48:11,232 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-11 19:48:11,249 - INFO     - __main__ - 	 name => default 
+2018-06-11 19:48:11,249 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-11 19:48:11,249 - INFO     - __main__ - 	 port => 8080
+2018-06-11 19:48:11,250 - INFO     - __main__ - 	 protocol => https
+2018-06-11 19:48:11,250 - INFO     - __main__ - 	 user => admin
+2018-06-11 19:48:11,250 - INFO     - __main__ - 	 password => XXXXX
+2018-06-11 19:49:30,768 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-11 19:49:30,770 - INFO     - __main__ - 	 Info Log start
+2018-06-11 19:49:30,770 - WARNING  - __main__ - 	 Warn Log start
+2018-06-11 19:49:30,771 - ERROR    - __main__ - 	 Error Loh start
+2018-06-11 19:49:30,771 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 name => default 
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 port => 8080
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 protocol => https
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 user => admin
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 password => XXXXX
+2018-06-11 19:49:30,790 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-11 20:00:07,356 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-11 20:00:07,356 - INFO     - __main__ - 	 Info Log start
+2018-06-11 20:00:07,357 - WARNING  - __main__ - 	 Warn Log start
+2018-06-11 20:00:07,357 - ERROR    - __main__ - 	 Error Loh start
+2018-06-11 20:00:07,357 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-11 20:00:07,375 - INFO     - __main__ - 	 name => default 
+2018-06-11 20:00:07,375 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-11 20:00:07,375 - INFO     - __main__ - 	 port => 8080
+2018-06-11 20:00:07,375 - INFO     - __main__ - 	 protocol => https
+2018-06-11 20:00:07,375 - INFO     - __main__ - 	 user => admin
+2018-06-11 20:00:07,376 - INFO     - __main__ - 	 password => XXXXX
+2018-06-11 20:00:07,376 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-11 20:00:07,376 - INFO     - __main__ - 	 Try to connect to server
+2018-06-11 20:01:58,632 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-11 20:01:58,633 - INFO     - __main__ - 	 Info Log start
+2018-06-11 20:01:58,633 - WARNING  - __main__ - 	 Warn Log start
+2018-06-11 20:01:58,633 - ERROR    - __main__ - 	 Error Loh start
+2018-06-11 20:01:58,633 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-11 20:01:58,649 - INFO     - __main__ - 	 name => default 
+2018-06-11 20:01:58,649 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-11 20:01:58,649 - INFO     - __main__ - 	 port => 8080
+2018-06-11 20:01:58,650 - INFO     - __main__ - 	 protocol => https
+2018-06-11 20:01:58,650 - INFO     - __main__ - 	 user => admin
+2018-06-11 20:01:58,650 - INFO     - __main__ - 	 password => XXXXX
+2018-06-11 20:01:58,650 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-11 20:01:58,650 - INFO     - __main__ - 	 Try to connect to server
+2018-06-11 20:03:41,027 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-11 20:03:41,028 - INFO     - __main__ - 	 Info Log start
+2018-06-11 20:03:41,028 - WARNING  - __main__ - 	 Warn Log start
+2018-06-11 20:03:41,028 - ERROR    - __main__ - 	 Error Loh start
+2018-06-11 20:03:41,028 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 10:53:54,957 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 10:53:54,958 - INFO     - __main__ - 	 Info Log start
+2018-06-12 10:53:54,958 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 10:53:54,958 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 10:53:54,958 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 10:57:16,089 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 10:57:16,091 - INFO     - __main__ - 	 Info Log start
+2018-06-12 10:57:16,091 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 10:57:16,091 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 10:57:16,092 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 10:57:16,110 - INFO     - __main__ - 	 name => default 
+2018-06-12 10:57:16,111 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 10:57:16,111 - INFO     - __main__ - 	 port => 8080
+2018-06-12 10:57:16,111 - INFO     - __main__ - 	 protocol => https
+2018-06-12 10:57:16,111 - INFO     - __main__ - 	 user => admin
+2018-06-12 10:57:16,112 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 10:57:16,112 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 10:57:16,112 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 10:57:16,112 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 10:57:40,263 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 10:57:40,263 - INFO     - __main__ - 	 Info Log start
+2018-06-12 10:57:40,263 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 10:57:40,263 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 10:57:40,263 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 10:57:40,280 - INFO     - __main__ - 	 name => default 
+2018-06-12 10:57:40,280 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 10:57:40,280 - INFO     - __main__ - 	 port => 8080
+2018-06-12 10:57:40,280 - INFO     - __main__ - 	 protocol => https
+2018-06-12 10:57:40,280 - INFO     - __main__ - 	 user => admin
+2018-06-12 10:57:40,281 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 10:57:40,281 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 10:57:40,281 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 10:57:40,281 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:08:07,769 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:08:07,770 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:08:07,770 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:08:07,770 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:08:07,770 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:08:07,791 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:08:07,791 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:08:07,791 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:08:07,791 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:08:07,792 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:08:07,792 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:08:07,792 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:08:07,792 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:08:07,792 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:17:20,529 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:17:20,531 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:17:20,532 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:17:20,532 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:17:20,532 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:17:20,551 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:17:20,552 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:17:20,552 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:21:01,776 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:21:01,776 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:21:01,777 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:21:01,777 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:21:01,777 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:21:01,794 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:21:01,795 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:29:22,566 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:29:22,566 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:29:22,566 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:29:22,567 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:29:22,567 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:29:22,585 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:29:22,586 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:45:41,091 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:45:41,094 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:45:41,094 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:45:41,095 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:45:41,095 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:45:41,119 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:45:41,120 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:56:35,419 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:56:35,421 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:56:35,422 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:56:35,422 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:56:35,422 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 name => default 
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 serverName => localhost 
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 port => 8080
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 protocol => https
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 user => admin
+2018-06-12 11:56:35,441 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 11:56:35,442 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 11:56:35,442 - INFO     - __main__ - 	 URL of Jenkins server => https://localhost:8080
+2018-06-12 11:56:35,442 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 11:58:09,324 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 11:58:09,327 - INFO     - __main__ - 	 Info Log start
+2018-06-12 11:58:09,327 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 11:58:09,328 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 11:58:09,328 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 11:58:09,352 - INFO     - __main__ - 	 name => None 
+2018-06-12 11:58:09,352 - INFO     - __main__ - 	 serverName => None 
+2018-06-12 11:58:09,352 - INFO     - __main__ - 	 port => None
+2018-06-12 11:58:09,352 - INFO     - __main__ - 	 protocol => None
+2018-06-12 11:58:09,352 - INFO     - __main__ - 	 user => None
+2018-06-12 12:02:39,361 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 12:02:39,363 - INFO     - __main__ - 	 Info Log start
+2018-06-12 12:02:39,364 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 12:02:39,364 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 12:02:39,364 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 name => remote 
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 port => 8080
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 protocol => https
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 user => admin
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 12:02:39,386 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 12:02:39,387 - INFO     - __main__ - 	 URL of Jenkins server => https://192.168.178.48:8080
+2018-06-12 12:02:39,387 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 12:05:11,176 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 12:05:11,176 - INFO     - __main__ - 	 Info Log start
+2018-06-12 12:05:11,176 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 12:05:11,177 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 12:05:11,177 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 name => remote 
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 port => 8080
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 protocol => http
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 user => admin
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 12:05:11,194 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 12:05:11,195 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:16:26,799 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:16:26,800 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:16:26,800 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:16:26,801 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:16:26,801 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:16:26,818 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:16:26,818 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:16:26,818 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:16:26,818 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:16:26,819 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:16:26,819 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:16:26,819 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:16:26,819 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:16:26,819 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:19:01,620 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:19:01,623 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:19:01,623 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:19:01,624 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:19:01,624 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:19:01,645 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:19:01,645 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:19:01,646 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:19:01,647 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:19:31,615 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:19:31,617 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:19:31,617 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:19:31,618 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:19:31,618 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:19:31,636 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:19:31,637 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:19:31,637 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:21:13,136 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:21:13,139 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:21:13,140 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:21:13,140 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:21:13,140 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:21:13,159 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:21:13,160 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:21:13,161 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:29:46,234 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:29:46,237 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:29:46,237 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:29:46,238 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:29:46,238 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:29:46,256 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:29:46,256 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:29:46,256 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:29:46,256 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:29:46,256 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:29:46,257 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:29:46,257 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:29:46,257 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:29:46,257 - INFO     - __main__ - 	 Try to connect to server
+2018-06-12 14:31:04,336 - DEBUG    - __main__ - 	 Debug Log Start 
+2018-06-12 14:31:04,339 - INFO     - __main__ - 	 Info Log start
+2018-06-12 14:31:04,340 - WARNING  - __main__ - 	 Warn Log start
+2018-06-12 14:31:04,340 - ERROR    - __main__ - 	 Error Loh start
+2018-06-12 14:31:04,340 - CRITICAL - __main__ - 	 Critical Log start
+2018-06-12 14:31:04,358 - INFO     - __main__ - 	 name => remote 
+2018-06-12 14:31:04,358 - INFO     - __main__ - 	 serverName => 192.168.178.48 
+2018-06-12 14:31:04,358 - INFO     - __main__ - 	 port => 8080
+2018-06-12 14:31:04,359 - INFO     - __main__ - 	 protocol => http
+2018-06-12 14:31:04,360 - INFO     - __main__ - 	 user => admin
+2018-06-12 14:31:04,360 - INFO     - __main__ - 	 password => XXXXX
+2018-06-12 14:31:04,360 - INFO     - __main__ - 	 timeout for connect the server => None
+2018-06-12 14:31:04,360 - INFO     - __main__ - 	 URL of Jenkins server => http://192.168.178.48:8080
+2018-06-12 14:31:04,360 - INFO     - __main__ - 	 Try to connect to server

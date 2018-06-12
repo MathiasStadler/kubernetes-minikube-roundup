@@ -53,3 +53,14 @@ https://github.com/pycontribs/jenkinsapi
 ```python
 from jenkinsapi.jenkins import Jenkins
 ```
+
+## get api token
+
+- [from here last entry](https://stackoverflow.com/questions/36633725/generate-jenkins-api-token-using-rest-api)
+
+```bash
+>brew install HTML-XML-utils
+> curl --silent --basic http://<username>:<password>@<jenkins-url>:<port>/me/configure | hxselect '#apiToken' | sed 's/.*value="\([^"]*\)".*/\1\n/g'
+> curl --silent --basic http://admin:admin@192.168.178.48:8080/me/configure | hxselect '#apiToken' | sed 's/.*value="\([^"]*\)".*/\1\n/g'
+b74f5c5f16165987db62782814cfaa10n
+```

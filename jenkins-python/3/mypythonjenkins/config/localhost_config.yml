@@ -7,9 +7,9 @@ default:
   user: admin
   password: admin
 remote:
-  name: default
-  server: localhost
+  name: remote
+  server: 192.168.178.48
   port: 8080
-  protocol: https
+  protocol: http
   user: admin
   password: admin
