@@ -13,7 +13,7 @@ import jenkins
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('spam.log')
+fh = logging.FileHandler(__nmae__ + '.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler(sys.stdout)

@@ -64,3 +64,21 @@ from jenkinsapi.jenkins import Jenkins
 > curl --silent --basic http://admin:admin@192.168.178.48:8080/me/configure | hxselect '#apiToken' | sed 's/.*value="\([^"]*\)".*/\1\n/g'
 b74f5c5f16165987db62782814cfaa10n
 ```
+
+## api in swagger yaml
+
+```txt
+https://github.com/cliffano/swaggy-jenkins/blob/master/spec/jenkins-api.yml
+```
+
+## plugins via curl
+
+```txt
+curl -s -k "https://$jenkins/pluginManager/api/json?pretty=1&tree=plugins\[shortName,longName,version\]"
+```
+
+## system properties
+
+```txt
+https://stackoverflow.com/questions/37035319/as-a-jenkins-administrator-how-do-i-get-a-users-api-token-without-logging-in-a
+```
