@@ -61,3 +61,123 @@ Trying to reach: 'https://172.17.0.2:9090/'
 ```
 
 - delete the 's' fro https maybe you used minikube see the last link above
+
+## create secret
+
+```bash
+> kubectl create secret generic kubernetes-dashboard-certs --from-file=/tmp/kubernetes-dashboard.crt -n kube-system
+```
+
+## delete secret
+
+```bash
+> kubectl delete  secret kubernetes-dashboard-certs -n kube-system
+```
+
+## delete old dashboard pod
+
+```bash
+> kubectl -n kube-system delete $(kubectl -n kube-system get pod -o name | grep dashboard)
+```
+
+## create secret
+
+- pass
+
+## aplly last dashboard
+
+```bash
+>
+```
+
+## start proxy
+
+```
+
+```
+
+## or nodeport
+
+[from her](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)
+
+## edit interface type from ClusterIp to NodePort
+
+```bash
+> kubectl -n kube-system edit service kubernetes-dashboard
+```
+
+## show nodePort mapping
+
+```bash
+kubectl -n kube-system get service kubernetes-dashboard
+```
+
+## get master ip for cluster
+
+```bash
+> kubectl cluster-info
+```
+
+## call dashboard direct
+
+```bash
+curl https://<master-ip>:<nodePort>
+# e.g. curl https://master-ip:nodeport
+curl https://192.168.99.100:30000
+```
+
+## curl: (35) gnutls_handshake() failed: An unexpected TLS packet was received.
+
+- cURL can NOT found the certificate for this connection
+
+### debug cURL
+
+```bash
+> curl -vvv  https://192.168.99.100:30000
+```
+
+### show opensll
+
+```bash
+> openssl s_client-connect 192.168.99.100:30000
+```
+
+https://curl.haxx.se/docs/sslcerts.html
+
+curl --cert /tmp/kubernetes-dashboard.crt https://192.168.99.100:30000
+
+## kez for minikube
+
+- [from here](https://github.com/kubernetes/minikube/issues/609)
+
+- HINT:
+
+- apple
+
+```bash
+curl https://192.168.99.100:8443/apis --key /Users/$USER/.minikube/certs/ca-key.pem --cert /Users/$USER/.minikube/certs/cert.pem --cacert /Users/$USER/.minikube/certs/ca.pem --cert-type PEM
+```
+
+- linux
+
+```bash
+curl -l https://192.168.99.100:8443/apis --key $HOME/.minikube/certs/ca-key.pem --cert $HOME/.minikube/certs/cert.pem --cacert $HOME/.minikube/certs/ca.pem --cert-type PEM
+
+# with p12 format
+# OSX's built-in cURL uses Apple's own Secure transport library instead of OpenSSL, and so only P12 format certificates are supported
+```
+
+## convert to p12 format
+
+```bash
+> openssl pkcs12 -export -in $HOME/.minikube/certs/cert.pem -inkey $HOME/.minikube/certs/key.pem -out $HOME/.minikube/certs/ca-key.p12
+# without pasword -out newkey-no-pass.pem
+# see here https://unix.stackexchange.com/questions/139110/expect-script-remove-password-on-private-key
+touch noPasswd.txt|openssl pkcs12 -export -passin file:./noPasswd.txt -in $HOME/.minikube/certs/cert.pem -inkey $HOME/.minikube/certs/key.pem -out $HOME/.minikube/certs/ca-key.p12
+```
+
+## show crt path
+
+```bash
+kubectl config view
+```
