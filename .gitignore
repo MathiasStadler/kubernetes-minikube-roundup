@@ -1,3 +1,15 @@
+# exclude kez staff
+**/*key
+**/*crt
+**/*csr
+**/*pub
+**/*known_hosts
+
+# backups
+**/*backup*/**
+**/**backup**/**
+**/*backup
+
 # exclude from
 tests_workdir
 tests_workdir/**

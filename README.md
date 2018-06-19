@@ -1,6 +1,8 @@
 <!-- markdownlint-disable MD041 -->
+
 > I would greatly appreciate it if you kindly give me some feedback if you found an error
 > [Send feedback to me](mailto:feedback@mathias-stadler.de)
+
 <!-- markdownlint-enable MD041 -->
 
 # kubernetes-minikube-roundup
@@ -113,7 +115,6 @@ minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memo
 > minikube start --v=7 --logtostderr
 ```
 
-
 ## more than one minikube local
 
 ```bash
@@ -136,7 +137,6 @@ minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memo
 
 # delete
 minikube delete --profile anotherminikube
-
 ```
 
 ## minikube show profile/machines
@@ -333,7 +333,6 @@ Kubernetes master is running at https://192.168.99.100:8443
 > docker info
 ```
 
-
 ## minikube issue
 
 [error report ](https://github.com/kubernetes/minikube/issues/2472)
@@ -342,7 +341,7 @@ Kubernetes master is running at https://192.168.99.100:8443
 > minikube start --kubernetes-version=https://github.com/kubernetes/minikube/releases/download/v0.25.0/localkube
 ```
 
-## install minikube version  v0.25.2 from brew cask
+## install minikube version v0.25.2 from brew cask
 
 - All credits goes to [Joeri Verdeyen - Downgrade an application installed with Brew Cask article](https://www.jverdeyen.be/mac/dowbrngrade-brew-cask-application/)
 
@@ -371,7 +370,6 @@ Kubernetes master is running at https://192.168.99.100:8443
 
 [](https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7)
 
-
 ## Troubles1mminihooting
 
 - view status of VBoxNet interfaces
@@ -384,13 +382,13 @@ interface not up
 https://www.virtualbox.org/ticket/16911
 
 # host-only network
+
 [Erklärung Host-only network german](https://www.thomas-krenn.com/de/wiki/Netzwerkkonfiguration_in_VirtualBox#Host-only_networking)
 
 ## proplem with double VirtualBox Host network
 
 vboxnet0:
 vboxnet1:
-
 
 ## open thinks
 
@@ -400,7 +398,8 @@ vboxnet1:
 
 kubectl config current-context
 
-## turn of kubectl tls
+## turn off kubectl tls
+
 [from here](https://stackoverflow.com/questions/38664770/cannot-connect-to-minikube-on-macos)
 
 and github [here](https://github.com/robertluwang/docker-hands-on-guide/blob/master/minikube-no-tls-verify.md)
@@ -415,7 +414,6 @@ VBoxManage controlvm minikube natpf1 k8s-dashboard,tcp,127.0.0.1,30000,,30000
 - Quick fix reinstall VirtualBox :-)
 
 - of course not a proper solution
-
 
 ## kubctl verbose
 
@@ -437,8 +435,8 @@ VBoxManage controlvm minikube natpf1 k8s-dashboard,tcp,127.0.0.1,30000,,30000
 
 - **Attention** you run this container inside the minikube vm on the local docker **NOT** inside kubernetes
 
-
 ## minikube tutorial
+
 [found here](https://kubernetes.io/docs/tutorials/hello-minikube/#create-your-node-js-application)
 
 ## kubectl
@@ -511,8 +509,4 @@ docker rmi hello-node:v1 hello-node:v2 -f
 minikube stop
 eval $(minikube docker-env -u)
 minikube delete
-
-
-
-
 ```
