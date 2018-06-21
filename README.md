@@ -7,6 +7,8 @@
 
 # kubernetes-minikube-roundup
 
+## [cheat sheet](https://codefresh.io/kubernetes-tutorial/kubernetes-cheat-sheet/)
+
 ## check VMX on MAC
 
 ```bash

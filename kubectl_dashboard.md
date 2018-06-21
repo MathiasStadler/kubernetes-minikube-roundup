@@ -1,5 +1,22 @@
 # [kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
+## [Compatibility-matrix](https://github.com/kubernetes/dashboard/wiki/Compatibility-matrix)
+
+```bash
+# kubectl version
+> kubectl version -o yaml
+# node version / minikube version
+> kubectl get nodes
+# dashboard version
+```
+
+```txt
+# parameter for yaml
+> https://github.com/kubernetes/dashboard/wiki/Dashboard-arguments
+# sample yaml
+> https://github.com/kubernetes/dashboard/blob/master/src/deploy/recommended/kubernetes-dashboard.yaml#L114
+```
+
 ## [Remote HTTPS Accessing Kubernetes (kubectl) Dashboard 1.7.X and above](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)
 
 https://github.com/kubernetes/dashboard/wiki/Installation#recommended-setup
@@ -65,19 +82,41 @@ Trying to reach: 'https://172.17.0.2:9090/'
 ## create secret
 
 ```bash
-> kubectl create secret generic kubernetes-dashboard-certs --from-file=/tmp/kubernetes-dashboard.crt -n kube-system
+# create
+> kubectl create secret generic kubernetes-dashboard-certs --from-file=/tmp/certs -n kube-system
+# check
+> kubectl -n kube-system get secrets
+# describe
+> kubectl -n kube-system describe secrets/kubernetes-dashboard-certs
+```
+
+## stop/delete dashboard pod / stop pod
+
+```bash
+> kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard-head.yaml
 ```
 
 ## delete secret
 
 ```bash
 > kubectl delete  secret kubernetes-dashboard-certs -n kube-system
+# check
+> kubectl -n kube-system get secrets
 ```
 
 ## delete old dashboard pod
 
 ```bash
+# show deployments
+> kubectl -n kube-system get deployments
+# delete deployments
+> kubectl -n kube-system delete  deployment kubernetes-dashboard
+# delete one old @TODO Whats happen on here really???
+> kubectl -n kube-system delete  pod kubernetes-dashboard-77d8b98585-mdrhh
+# delete all
 > kubectl -n kube-system delete $(kubectl -n kube-system get pod -o name | grep dashboard)
+# check
+> kubectl -n kube-system get pod
 ```
 
 ## create secret
@@ -103,7 +142,7 @@ Trying to reach: 'https://172.17.0.2:9090/'
 ## edit interface type from ClusterIp to NodePort
 
 ```bash
-> kubectl -n kube-system edit service kubernetes-dashboard
+> kubectl -n kube-system edit service kubernetes-dashboard:
 ```
 
 ## show nodePort mapping
@@ -129,6 +168,11 @@ curl https://192.168.99.100:30000
 ## curl: (35) gnutls_handshake() failed: An unexpected TLS packet was received.
 
 - cURL can NOT found the certificate for this connection
+
+```txt
+# upgrade curl
+https://stackoverflow.com/questions/39437606/curl-35-gnutls-handshake-failed-public-key-signature-verification-has-fail
+```
 
 ### debug cURL
 
@@ -156,6 +200,9 @@ curl --cert /tmp/kubernetes-dashboard.crt https://192.168.99.100:30000
 
 ```bash
 curl https://192.168.99.100:8443/apis --key /Users/$USER/.minikube/certs/ca-key.pem --cert /Users/$USER/.minikube/certs/cert.pem --cacert /Users/$USER/.minikube/certs/ca.pem --cert-type PEM
+
+##
+curl -vvv -l https://192.168.99.100:30000/ui --key /tmp/kubernetes-dashboard.key --cert /tmp/kubernetes-dashboard.crt --cacert /tmp/kubernetes-dashboard.crt --cert-type PEM
 ```
 
 - linux
@@ -180,4 +227,53 @@ touch noPasswd.txt|openssl pkcs12 -export -passin file:./noPasswd.txt -in $HOME/
 
 ```bash
 kubectl config view
+```
+
+## ssh to minikube
+
+```bash
+ssh docker@192.168.99.100
+# password => tcuser
+```
+
+## error reading X.509 key or certificate file: The certificate and the given key do not match
+
+- check certificate
+
+```bash
+> openssl rsa -in .minikube/certs/key.pem -noout -modulus | openssl md5
+# and
+> openssl x509 -in .minikube/certs/cert.pem -noout -modulus | openssl md5
+# must give the same output
+```
+
+- if not
+
+## renew kubernetes certificate
+
+```txt
+https://medium.com/@AnushkaSandaru1/how-to-change-expired-certificates-in-kubernetes-cluster-5d3feb9d9838
+```
+
+## How to expose your Kubernetes Dashboard with cert-manager
+
+```txt
+https://itnext.io/how-to-expose-your-kubernetes-dashboard-with-cert-manager-422ab1e3bf30
+```
+
+## display secret
+
+```bash
+> kubectl -n kube-system get secret
+```
+
+## new try
+
+```txt
+http://www.joseluisgomez.com/containers/kubernetes-dashboard/
+```
+
+```bash
+# https
+curl https://192.168.99.100:30000/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 ```
