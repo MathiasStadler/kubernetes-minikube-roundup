@@ -4,7 +4,7 @@ checkProcessIsRunning() {
 	# run test process from here
 	# https://stackoverflow.com/questions/2903354/bash-script-to-check-running-process
 	SERVICE=$1
-	if ps ax | grep -v grep | grep -v $0 | grep $SERVICE >/dev/null; then
+	if ps ax | grep -v grep | grep -v $0 | grep "$SERVICE" >/dev/null; then
 		#old if pgrep "$SERVICE" >/dev/null; then
 		echo "$SERVICE service running"
 		return 0
@@ -21,7 +21,9 @@ deleteSoftwarePackages() {
 
 	echo "Software Packages => $1"
 
-	installPath=$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location:' | awk '{print $2}')
+	# installPath=$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location:' | awk '{print $2}')
+
+	installPath="$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location' | awk '{$1="";print $0}' | sed -E 's/^ //g')"
 
 	echo "Install Path of Software => /${installPath}"
 
@@ -30,11 +32,12 @@ deleteSoftwarePackages() {
 	echo "Files to deleted in directory $PWD"
 
 	#old pkgutil --only-files --files ${toDeleteSoftwarePackages}
-	pkgutil --only-files --files ${toDeleteSoftwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
-	pkgutil --only-dirs --files ${toDeleteSoftwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
+	pkgutil --only-files --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -I '{}' -n 1 -0 ls -l "/${installPath}{}"
+	pkgutil --only-dirs --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -I '{}' -n 1 -0 ls -l "/${installPath}{}"
 
-	sudo pkgutil --only-files --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 rm -if
-	sudo pkgutil --only-dirs --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
+	sudo pkgutil --only-files --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 sudo rm -if
+	sudo pkgutil --only-dirs --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 sudo rm -ifr
+
 	sudo pkgutil --forget "${toDeleteSoftwarePackages}"
 
 	echo "Finish deleteSoftwarePackages"
@@ -45,7 +48,7 @@ deleteSoftwarePackages() {
 # show status
 ls -l ~/.minikube/machines/ | grep ^d | awk '{print $9}' | xargs -I '{}' minikube status --profile {}
 # stop all instances
-ls -l ~/.minikube/machines/ | grep ^d | awk '{print $9}' | xargs -I '{}' minikube delete --profile {}
+ls -l ~/.minikube/machines/ | grep ^d | awk '{print $9}' | xargs -I '{}' minikube stop --profile {}
 # check
 if [ "$(ls -l ~/.minikube/machines/ | grep -c ^d)" -eq "0" ]; then
 	echo "OK all minikube stop"
@@ -94,14 +97,6 @@ else
 	echo "Fine Service not running"
 fi
 
-# delete VirtualBox.app
-if [[ -e /Applications/VirtualBox.app ]]; then
-	echo "VirtualBox.app available. So we will delete now"
-	sudo rm -rf /Applications/VirtualBox.app
-else
-	echo " VirtualBox.app not available"
-fi
-
 # delete via cli
 # from here
 # https://github.com/iamrToday/pkg-remove/blob/master/pkg-remove.sh
@@ -123,5 +118,13 @@ fi
 pkgutil --pkgs | grep virtualbox | while read -r x; do echo "hallo $x "; done
 
 pkgutil --pkgs | grep virtualbox | while read -r softwarePackage; do deleteSoftwarePackages "$softwarePackage"; done
+
+# delete VirtualBox.app
+if [[ -e /Applications/VirtualBox.app ]]; then
+	echo "VirtualBox.app available. So we will delete now"
+	sudo rm -rf /Applications/VirtualBox.app
+else
+	echo " VirtualBox.app not available"
+fi
 
 exit 0
