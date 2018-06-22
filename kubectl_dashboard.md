@@ -277,3 +277,9 @@ http://www.joseluisgomez.com/containers/kubernetes-dashboard/
 # https
 curl https://192.168.99.100:30000/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 ```
+
+## RBAC Kubernetes
+
+```txt
+https://docs.bitnami.com/kubernetes/how-to/configure-rbac-in-your-kubernetes-cluster/#use-case-1-create-user-with-limited-namespace-access
+```

@@ -94,6 +94,24 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 
 ```bash
 > brew cask install minikube
+# or via curl from github direct
+```
+
+## uninstall
+
+```bash
+> brew cask uninstall minikube
+==> Uninstalling Cask minikube
+==> Unlinking Binary '/usr/local/bin/minikube'.
+==> Purging files for version 0.25.2 of Cask minikube
+```
+
+## install path on apple
+
+```bash
+> find / -name minikube 2>/dev/null
+/usr/local/bin/minikube
+/usr/local/Caskroom/minikube
 ```
 
 ## minikube start
@@ -135,7 +153,7 @@ minikube start --vm-driver=virtualbox --container-runtime=docker --cpus 4 --memo
 > minikube config set profile anotherminikube
 
 # check which minikube is default
-> n get profile
+> minikube get profile
 
 # delete
 minikube delete --profile anotherminikube
@@ -512,3 +530,10 @@ minikube stop
 eval $(minikube docker-env -u)
 minikube delete
 ```
+
+## open topics
+
+minikube profile list
+minikube profile default
+
+minikube config set profile anotherminikube
