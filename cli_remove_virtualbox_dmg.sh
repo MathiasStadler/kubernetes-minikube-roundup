@@ -1,10 +1,11 @@
 #!/bin/bash
 
 checkProcessIsRunning() {
-	# run test prozess from here
+	# run test process from here
 	# https://stackoverflow.com/questions/2903354/bash-script-to-check-running-process
 	SERVICE=$1
-	if ps ax | grep -v grep | grep -v $0 | grep $SERVICE >/dev/null; then
+	# if ps ax | grep -v grep | grep -v $0 | grep $SERVICE >/dev/null; then
+	if pgrep "$SERVICE" >/dev/null; then
 		echo "$SERVICE service running"
 		return 0
 	else
@@ -15,26 +16,26 @@ checkProcessIsRunning() {
 
 deleteSoftwarePackages() {
 
-	toDeleteSotwarePackages=$1
+	toDeleteSoftwarePackages=$1
 	echo "Start deleteSoftwarePackages"
 
 	echo "Software Packages => $1"
 
-	installPath=$(pkgutil --pkg-info ${toDeleteSotwarePackages} | grep 'location:' | awk '{print $2}')
+	installPath=$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location:' | awk '{print $2}')
 
 	echo "Install Path of Software => /${installPath}"
 
-	cd /${installPath}
+	cd "/${installPath}"
 
 	echo "Files to deleted in directory $PWD"
 
-	#old pkgutil --only-files --files ${toDeleteSotwarePackages}
-	pkgutil --only-files --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
-	pkgutil --only-dirs --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
+	#old pkgutil --only-files --files ${toDeleteSoftwarePackages}
+	pkgutil --only-files --files ${toDeleteSoftwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
+	pkgutil --only-dirs --files ${toDeleteSoftwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
 
-	sudo pkgutil --only-files --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -if
-	sudo pkgutil --only-dirs --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
-	sudo pkgutil --forget ${toDeleteSotwarePackages}
+	sudo pkgutil --only-files --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 rm -if
+	sudo pkgutil --only-dirs --files "${toDeleteSoftwarePackages}" | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
+	sudo pkgutil --forget "${toDeleteSoftwarePackages}"
 
 	echo "Finish deleteSoftwarePackages"
 
@@ -101,52 +102,22 @@ fi
 # from here
 # https://github.com/iamrToday/pkg-remove/blob/master/pkg-remove.sh
 
-INSTALL_VIRTUALBOX_PRODUCT_LIST="/tmp/virtualbox_product_list.txt"
+# INSTALL_VIRTUALBOX_PRODUCT_LIST="/tmp/virtualbox_product_list.txt"
 
-pkgutil --pkgs | grep virtualbox >${INSTALL_VIRTUALBOX_PRODUCT_LIST}
+# pkgutil --pkgs | grep virtualbox >${INSTALL_VIRTUALBOX_PRODUCT_LIST}
 
 # loop over file from here
 # https://stackoverflow.com/questions/1521462/looping-through-the-content-of-a-file-in-bash
 # while read p; do
-#	echo "Software for rermove => $p"
+#	echo "Software for remove => $p"
 #done <${INSTALL_VIRTUALBOX_PRODUCT_LIST}
 
 # loop over command output as list
 # from here
 # https://stackoverflow.com/questions/2859908/iterating-over-each-line-of-ls-l-output
 
-pkgutil --pkgs | grep virtualbox | while read x; do echo "hallo $x "; done
+pkgutil --pkgs | grep virtualbox | while read -r x; do echo "hallo $x "; done
 
-pkgutil --pkgs | grep virtualbox | while read softwarePackage; do deleteSoftwarePackages $softwarePackage; done
-
-exit 0
-
-software="org.virtualbox.pkg.virtualbox"
-
-# loop over a list
-# files=("/etc/passwd" "/etc/group" "/etc/hosts")
-# for i in "${files[@]}"; do
-#	echo "$i"
-#done
-
-exit 0
-
-installPath=$(pkgutil --pkg-info ${software} | grep 'location:' | awk '{print $2}')
-
-echo "Install Software Path => ${installPath}"
-
-cd /${installPath}
-
-echo "Files to deleted"
-pkgutil --only-files --files ${software}
-
-pkgutil --only-dirs --files ${software}
-
-exit 0
-
-#start uninstall
-pkgutil --only-files --files ${software} | tr '\n' '\0' | xargs -n 1 -0 rm -if
-pkgutil --only-dirs --files ${software} | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
-sudo pkgutil --forget ${software}
+pkgutil --pkgs | grep virtualbox | while read -r softwarePackage; do deleteSoftwarePackages "$softwarePackage"; done
 
 exit 0
