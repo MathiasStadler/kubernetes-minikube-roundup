@@ -60,6 +60,7 @@
         "timonwong",
         "unmount",
         "vboxfs",
+        "vboxmanage",
         "virtio",
         "virtualbox",
         "vmodule",

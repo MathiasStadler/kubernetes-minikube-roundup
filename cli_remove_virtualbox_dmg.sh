@@ -32,8 +32,8 @@ deleteSoftwarePackages() {
 	pkgutil --only-files --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
 	pkgutil --only-dirs --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 ls -l
 
-	pkgutil --only-files --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -if
-	pkgutil --only-dirs --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
+	sudo pkgutil --only-files --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -if
+	sudo pkgutil --only-dirs --files ${toDeleteSotwarePackages} | tr '\n' '\0' | xargs -n 1 -0 rm -ifr
 	sudo pkgutil --forget ${toDeleteSotwarePackages}
 
 	echo "Finish deleteSoftwarePackages"
@@ -70,6 +70,7 @@ fi
 # from here
 # https://askubuntu.com/questions/457329/shutting-down-all-virtualbox-vagrant-vms-in-one-easy-to-use-bash-command-that
 # for Apple OS i'm replace sed -r with sed -E
+# TODO check vboxmanage is available
 vboxmanage list runningvms | sed -E 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate
 
 # stop VirtualBox
@@ -85,7 +86,15 @@ if checkProcessIsRunning $SERVICE; then
 
 else
 
-	"Fine Service not running"
+	echo "Fine Service not running"
+fi
+
+# delete VirtualBox.app
+if [[ -e /Applications/VirtualBox.app ]]; then
+	echo "VirtualBox.app available. So we will delete now"
+	sudo rm -rf /Applications/VirtualBox.app
+else
+	echo " VirtualBox.app not available"
 fi
 
 # delete via cli
