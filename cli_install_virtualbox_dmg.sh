@@ -20,14 +20,14 @@ if [[ -e ${LATEST_VIRTUAL_BOX_VERSION_FILE} ]]; then
 
 else
 
-	echo "Dowload file"
-	curl http://download.virtualbox.org/virtualbox/$(cat ${LATEST_VIRTUAL_BOX_VERSION_FILE})/${LATEST_VIRTUAL_BOX_DMG_NAME} -O
+	echo "Download file"
+	curl "http://download.virtualbox.org/virtualbox/$(cat ${LATEST_VIRTUAL_BOX_VERSION_FILE})/${LATEST_VIRTUAL_BOX_DMG_NAME}" -O
 
 fi
 
 echo "VirtualBox file => ${LATEST_VIRTUAL_BOX_DMG_NAME}"
 
-hdiutil mount ${LATEST_VIRTUAL_BOX_DMG_NAME}
+hdiutil mount "${LATEST_VIRTUAL_BOX_DMG_NAME}"
 
 sudo installer -pkg /Volumes/VirtualBox/VirtualBox.pkg -target /
 
