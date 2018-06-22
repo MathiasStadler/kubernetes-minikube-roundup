@@ -4,8 +4,8 @@ checkProcessIsRunning() {
 	# run test process from here
 	# https://stackoverflow.com/questions/2903354/bash-script-to-check-running-process
 	SERVICE=$1
-	# if ps ax | grep -v grep | grep -v $0 | grep $SERVICE >/dev/null; then
-	if pgrep "$SERVICE" >/dev/null; then
+	if ps ax | grep -v grep | grep -v $0 | grep $SERVICE >/dev/null; then
+		#old if pgrep "$SERVICE" >/dev/null; then
 		echo "$SERVICE service running"
 		return 0
 	else
@@ -72,8 +72,9 @@ fi
 # https://askubuntu.com/questions/457329/shutting-down-all-virtualbox-vagrant-vms-in-one-easy-to-use-bash-command-that
 # for Apple OS i'm replace sed -r with sed -E
 # TODO check vboxmanage is available
-vboxmanage list runningvms | sed -E 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate
-
+if [[ -e /usr/local/bin/vboxmanage ]]; then
+	vboxmanage list runningvms | sed -E 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate
+fi
 # stop VirtualBox
 # osascript -e 'quit app "VirtualBox"'
 
@@ -84,6 +85,9 @@ if checkProcessIsRunning $SERVICE; then
 	echo "Running stop services"
 	# stop VirtualBox
 	osascript -e 'quit app "VirtualBox"'
+	killall VirtualBox
+	killall VBoxXPCOMIPCD
+	killall VBoxSVC
 
 else
 
