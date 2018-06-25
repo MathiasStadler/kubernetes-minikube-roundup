@@ -19,12 +19,16 @@
 
 ## [Remote HTTPS Accessing Kubernetes (kubectl) Dashboard 1.7.X and above](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above)
 
+```txt
 https://github.com/kubernetes/dashboard/wiki/Installation#recommended-setup
 https://github.com/kubernetes/dashboard/blob/master/README.md#getting-started
+```
 
 ## Access Control guide
 
+```txt
 https://github.com/kubernetes/dashboard/wiki/Access-control
+```
 
 ## Apply the latest Dashboard not install by default
 
@@ -123,7 +127,7 @@ Trying to reach: 'https://172.17.0.2:9090/'
 
 - pass
 
-## aplly last dashboard
+## apply last dashboard
 
 ```bash
 >
@@ -165,7 +169,7 @@ curl https://<master-ip>:<nodePort>
 curl https://192.168.99.100:30000
 ```
 
-## curl: (35) gnutls_handshake() failed: An unexpected TLS packet was received.
+## curl: (35) gnutls_handshake() failed: An unexpected TLS packet was received
 
 - cURL can NOT found the certificate for this connection
 
@@ -180,15 +184,19 @@ https://stackoverflow.com/questions/39437606/curl-35-gnutls-handshake-failed-pub
 > curl -vvv  https://192.168.99.100:30000
 ```
 
-### show opensll
+### show openssl
 
 ```bash
 > openssl s_client-connect 192.168.99.100:30000
 ```
 
+```txt
 https://curl.haxx.se/docs/sslcerts.html
+```
 
+```txt
 curl --cert /tmp/kubernetes-dashboard.crt https://192.168.99.100:30000
+```
 
 ## kez for minikube
 
