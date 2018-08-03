@@ -4,7 +4,8 @@ checkProcessIsRunning() {
 	# run test process from here
 	# https://stackoverflow.com/questions/2903354/bash-script-to-check-running-process
 	SERVICE=$1
-	if ps ax | grep -v grep | grep -v $0 | grep "$SERVICE" >/dev/null; then
+	# shellcheck disable=SC2009
+	if ps ax | grep -v grep | grep -v "$0" | grep "$SERVICE" >/dev/null; then
 		#old if pgrep "$SERVICE" >/dev/null; then
 		echo "$SERVICE service running"
 		return 0
@@ -23,11 +24,11 @@ deleteSoftwarePackages() {
 
 	# installPath=$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location:' | awk '{print $2}')
 
-	installPath="$(pkgutil --pkg-info ${toDeleteSoftwarePackages} | grep 'location' | awk '{$1="";print $0}' | sed -E 's/^ //g')"
+	installPath="$(pkgutil --pkg-info "${toDeleteSoftwarePackages}" | grep 'location' | awk '{$1="";print $0}' | sed -E 's/^ //g')"
 
 	echo "Install Path of Software => /${installPath}"
 
-	cd "/${installPath}"
+	cd "/${installPath}" || exit
 
 	echo "Files to deleted in directory $PWD"
 
@@ -46,10 +47,13 @@ deleteSoftwarePackages() {
 
 # stop all minikube instances
 # show status
+# shellcheck disable=SC2010
 ls -l ~/.minikube/machines/ | grep ^d | awk '{print $9}' | xargs -I '{}' minikube status --profile {}
 # stop all instances
+# shellcheck disable=SC2010
 ls -l ~/.minikube/machines/ | grep ^d | awk '{print $9}' | xargs -I '{}' minikube stop --profile {}
 # check
+# shellcheck disable=SC2010
 if [ "$(ls -l ~/.minikube/machines/ | grep -c ^d)" -eq "0" ]; then
 	echo "OK all minikube stop"
 else

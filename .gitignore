@@ -85,3 +85,6 @@ coverage.xml
 
 # pytest
 **/.pytest_cache/
+
+#ansible
+**/*retry
